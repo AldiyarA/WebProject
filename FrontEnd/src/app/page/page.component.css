@@ -1,0 +1,26 @@
+.margin-left-50{
+  margin-left: 50px;
+}
+.space{
+  height: 500px;
+}
+input:disabled, input{
+  color: black;
+  border: none;
+  background-color: initial;
+  outline: none;
+  font-size: 50px;
+  font-family: "Times New Roman", serif;
+  font-weight: bold;
+}
+textarea, textarea:disabled{
+  resize: none;
+  width: 500px;
+  min-height: 350px;
+  max-height: 1000px;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+}
