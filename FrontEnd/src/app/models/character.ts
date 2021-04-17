@@ -1,10 +1,11 @@
 export interface Character{
   id: number;
   original_name: string;
-  transcription: string;
   english_name: string;
-  age: number;
+  alias: string;
   race: string;
+  gender: string;
+  age: number;
   description: string;
   articles: number[];
 }
