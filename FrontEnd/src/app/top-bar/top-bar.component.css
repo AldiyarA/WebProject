@@ -1,0 +1,64 @@
+.top{
+  position: relative;
+  background-color: #ffffffee;
+  height: 100px;
+  display: flex;
+}
+.icon-box{
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  margin: 0 30px;
+}
+.topic{
+  position: absolute;
+  top: 10px;
+}
+.top-optional-btn{
+   padding: 0 20px;
+}
+.class-1{
+  position: relative;
+}
+.class-2{
+  height: 100%;
+  min-width: max-content;
+  transition: all 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.class-2:hover{
+  transition: all 0.5s;
+  background-color: #d3d3d3ee;
+}
+.class-2:hover > .class-3{
+  opacity: 1;
+  z-index: 2;
+  transition: opacity 0.3s; /*появление*/
+}
+.class-3{
+  transition: opacity 0.3s, z-index 0s; /*изчезновение*/
+  opacity: 0;
+  z-index: -1;
+}
+.class-5{
+  height: max-content;
+  position: absolute;
+  top: 100px;
+  background-color: #ffffffee;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+.class-4{
+  padding: 0 20px;
+  /*background-color: #ffffffee;*/
+  transition: all 0.5s;
+  font-size: 15px;
+}
+.class-4:hover{
+  background-color: #dededeee;
+  transition: all 0.5s;
+  /*font-size: 16px;*/
+}

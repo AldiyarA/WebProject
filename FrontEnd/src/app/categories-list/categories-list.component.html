@@ -1,9 +1,0 @@
-<!--<p>categories-list works!</p>-->
-<div *ngIf="category">
-  <a href="#category-{{categoryId}}"><p>{{category.name}}</p></a>
-  <ol>
-    <li *ngFor="let id of category.categoriesID">
-      <app-categories-list [categoryId]="id"></app-categories-list>
-    </li>
-  </ol>
-</div>
