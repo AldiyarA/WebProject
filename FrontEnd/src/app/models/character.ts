@@ -7,4 +7,5 @@ export interface Character{
   gender: string;
   age: number;
   description: string;
+  photo_url: string;
 }

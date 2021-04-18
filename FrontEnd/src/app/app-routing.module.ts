@@ -7,6 +7,7 @@ import {FilterComponent} from './filter/filter.component';
 import {GenreListComponent} from './genre-list/genre-list.component';
 import {CharacterListComponent} from './character-list/character-list.component';
 import {CharacterDetailComponent} from './character-detail/character-detail.component';
+import {GenreDetailComponent} from './genre-detail/genre-detail.component';
 
 const routes: Routes = [
   {path : '', redirectTo: 'main', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path : 'filter/:ids', component: FilterComponent},
   {path : 'filter', redirectTo: 'filter/', pathMatch: 'full'},
   {path : 'genre', component: GenreListComponent},
+  {path : 'genre/:id', component: GenreDetailComponent},
   {path : 'characters', component: CharacterListComponent},
   {path : 'characters/:id', component: CharacterDetailComponent},
 

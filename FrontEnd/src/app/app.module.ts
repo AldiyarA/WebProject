@@ -12,6 +12,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
+import { GenreDetailComponent } from './genre-detail/genre-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GenreListComponent } from './genre-list/genre-list.component';
     CharacterDetailComponent,
     MainComponent,
     LoginComponent,
-    GenreListComponent
+    GenreListComponent,
+    GenreDetailComponent
   ],
   imports: [
     BrowserModule,
