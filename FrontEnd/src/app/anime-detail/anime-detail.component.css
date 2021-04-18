@@ -1,0 +1,41 @@
+.flex-container{
+    padding-top:3%;
+    display:flex;
+}
+.name{
+    padding-left:1%;
+    padding-top:2%;
+}
+.anime_detailRight{
+    padding-left: 0.5% ;
+    padding-right: 0.5% ;
+    border: 2px solid blue;
+    border-radius: 6px;
+    position: relative;
+    display: block;
+}
+.anime_detailLeft{
+    padding-left:1%;
+}
+.rightnames{
+    text-align: center;
+    background-color: rgb(120,170,245);
+    font-weight: bold;
+    border: 2px solid coral;
+}
+.manage{
+    background-color:aqua;
+}
+img{
+    height: 500px;
+    width:auto;
+}
+.characteristics-flex,.characteristics-flex-names{
+    padding-top:2%;
+    padding-bottom: 2%;
+    display:flex;
+    justify-content: space-between;
+}
+.characteristics-flex{
+    border-bottom : 2px solid blue;
+}

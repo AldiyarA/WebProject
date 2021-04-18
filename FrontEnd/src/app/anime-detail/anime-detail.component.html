@@ -1,1 +1,51 @@
-<p>anime-detail works!</p>
+<div *ngIf= "anime_detail.english_name" class="name">
+    <h1>{{ anime_detail.english_name }}</h1>
+</div>
+<div class= "flex-container">
+    <div class= "anime_detailLeft">
+        <p *ngIf= "anime_detail.description">
+            {{ anime_detail.description }}
+        </p>
+
+        <div></div>
+    </div>
+    <div class= "anime_detailRight">
+        <button class="manage">MANAGE</button>
+        <div *ngIf= "anime_detail.english_name" class="rightnames">
+            <p>{{ anime_detail.english_name }}</p>
+        </div>
+        <div *ngIf= "anime_detail.photo_url" class="photo">
+            <img src={{anime_detail.photo_url}}>
+        </div>
+
+        <p class="rightnames"> Characteristics</p>
+        <div *ngIf= "anime_detail.country" class="characteristics-flex">
+            <div>Country</div>
+            <div>{{ anime_detail.country }}</div>
+        </div>
+        <div *ngIf= "anime_detail.original_name" class="characteristics-flex-names">
+            <div>Original name</div>
+            <div>{{ anime_detail.original_name }}</div>
+        </div>
+        <div *ngIf= "anime_detail.transcription" class="characteristics-flex-names">
+            <div>Transcription</div>
+            <div>{{ anime_detail.transcription }}</div>
+        </div>
+        <div *ngIf= "anime_detail.english_name" class="characteristics-flex">
+            <div>English name</div>
+            <div>{{ anime_detail.english_name }}</div>
+        </div>
+        <div *ngIf= "anime_detail.year" class="characteristics-flex">
+            <div>Year</div>
+            <div>{{ anime_detail.year }}</div>
+        </div>
+        <div *ngIf= "anime_detail.company" class="characteristics-flex">
+            <div>Company</div>
+            <div>{{ anime_detail.company }}</div>
+        </div>
+        <div *ngIf= "anime_detail.author" class="characteristics-flex-names">
+            <div>Author</div>
+            <div>{{ anime_detail.author }}</div>
+        </div>
+    </div>
+</div>
