@@ -8,6 +8,7 @@ import {GenreListComponent} from './genre-list/genre-list.component';
 import {CharacterListComponent} from './character-list/character-list.component';
 import {CharacterDetailComponent} from './character-detail/character-detail.component';
 import {GenreDetailComponent} from './genre-detail/genre-detail.component';
+import {AnimeDetailComponent} from './anime-detail/anime-detail.component';
 
 const routes: Routes = [
   {path : '', redirectTo: 'main', pathMatch: 'full'},
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path : 'genre/:id', component: GenreDetailComponent},
   {path : 'characters', component: CharacterListComponent},
   {path : 'characters/:id', component: CharacterDetailComponent},
-
+  {path : 'anime/:anime_id', component: AnimeDetailComponent}
 ];
 
 @NgModule({
