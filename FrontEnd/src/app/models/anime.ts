@@ -8,5 +8,4 @@ export interface Anime{
   company: string;
   author: string;
   description: string;
-  articles: number[];
 }

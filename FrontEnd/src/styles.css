@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background: #ffe4c4 url("assets/images/fon2.png");
+  background:  url("assets/images/fon2.png");
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+.main-box{
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+}
+.main-content{
+  width: 1050px;
+  min-height: 700px;
+}
+.class-btn-box{
+  cursor: pointer;
 }

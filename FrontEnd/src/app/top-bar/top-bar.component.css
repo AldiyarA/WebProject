@@ -1,6 +1,7 @@
 .top{
   position: relative;
-  background-color: #ffffffee;
+  /*background-color: #FF0000bb;*/
+  background-color: #FCA31190;
   height: 100px;
   display: flex;
 }
@@ -12,7 +13,7 @@
 }
 .topic{
   position: absolute;
-  top: 10px;
+  top: 30px;
 }
 .top-optional-btn{
    padding: 0 20px;
@@ -30,7 +31,8 @@
 }
 .class-2:hover{
   transition: all 0.5s;
-  background-color: #d3d3d3ee;
+  /*background-color: #d3d3d3ee;*/
+  background-color: #FCA311;
 }
 .class-2:hover > .class-3{
   opacity: 1;
@@ -56,9 +58,16 @@
   /*background-color: #ffffffee;*/
   transition: all 0.5s;
   font-size: 15px;
+  height: 70px;
+  position: relative;
+  width: 200px;
+}
+.class-4 h1{
+  position: absolute;
+  top:20px
 }
 .class-4:hover{
-  background-color: #dededeee;
+  background-color: #E5E5E5ee;
   transition: all 0.5s;
   /*font-size: 16px;*/
 }

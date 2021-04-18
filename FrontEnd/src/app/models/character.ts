@@ -7,5 +7,4 @@ export interface Character{
   gender: string;
   age: number;
   description: string;
-  articles: number[];
 }
