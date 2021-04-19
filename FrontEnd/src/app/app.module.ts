@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { GenreDetailComponent } from './genre-detail/genre-detail.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GenreDetailComponent } from './genre-detail/genre-detail.component';
     MainComponent,
     LoginComponent,
     GenreListComponent,
-    GenreDetailComponent
+    GenreDetailComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

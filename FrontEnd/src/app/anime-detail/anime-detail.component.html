@@ -1,5 +1,4 @@
 <div *ngIf="anime">
-  
   <div class= "flex-container">
       <div class= "anime_detailLeft">
         <div *ngIf= "anime.english_name" class="name">
@@ -12,19 +11,23 @@
           <div class="contents">
               <h3>Contents</h3>
               <ul style="list-style-type:none;" >
-                  <li class="contestList"><a href="#content1"> Content 1</a></li>
-                  <li class="contestList"><a href=".content2"> Content 2</a></li>
-                  <li class="contestList"><a href=".content3"> Content 3</a></li>
-                  <li class="contestList"><a href=".content4"> Content 4</a></li>
+
+                  <li class="contestList" *ngFor ="let article of articles">
+                    <a href="anime/{{anime.id}}/#article-{{article.id}}">{{article.name}}</a>
+                </li>
+                <li class="contestList"><a href="anime/{{anime.id}}/#characters">Characters</a></li>
               </ul>
           </div>
           <div> 
-              <button class="Characters">Characters</button>
+              <a href="anime/{{anime.id}}/#characters"><button class="Characters">Characters</button></a>
                 <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
           </div>
           <div>
               <button class="Genres">Genres</button>
-              <p class="buttontexts"> Genre (from French genre 'kind, sort') is any form or type of communication in any mode (written, spoken, digital, artistic, etc.) with socially-agreed-upon conventions developed over time</p>
+              <div class="genreList" *ngFor = "let genre of genres">
+                    <div class="genreName">{{genre.name}}</div>
+                    <div class="genreButt"><button>Genre Detail</button></div>
+              </div>
           </div>
           
       </div>
@@ -69,13 +72,20 @@
           <button class="manage">MANAGE</button>
       </div>
   </div>
-</div>
-<!-- <div *ngFor="let article of articles;index as i" >
-    <div *ngIf= "article.name">
+  <div *ngFor="let article of articles;index as i">
+
+    <div *ngIf= "article.name" id="article-{{article.id}}">
         <h1>{{article.name}}</h1>
     </div>
     <div *ngIf= "article.content">
         {{article.content}}
     </div>
-</div> -->
-<p id="content1">Hello </p>
+
+</div>
+<div id= "characters"  class="charactersList">
+    <div *ngFor="let character of characters">
+            <div>{{character.original_name}}</div>
+            <div><img src={{character.photo_url}} alt=""></div>
+    </div>  
+</div>
+</div>
