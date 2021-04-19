@@ -1,1 +1,7 @@
-<p>character-list works!</p>
+<div *ngFor="let character of characters" class="character">
+    <a class="avatar-link"><img [src]="character.photo_url" 
+                                class="character-avatar"
+                                [routerLink]="['/', 'characters', character.id]"></a>
+    <a class="character-name" 
+       [routerLink]="['/', 'characters', character.id]">{{character.english_name}}</a>
+</div>

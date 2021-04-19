@@ -1,0 +1,45 @@
+:host {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+:host::after {
+    content: "";
+    flex: auto;
+}
+
+.anime {
+    display: flex;
+    width: 21%;
+    margin: 2%;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.photo-link {
+    width: 80%;
+}
+
+.anime-photo {
+    width: 100%;
+    cursor: pointer;
+}
+
+.anime-name {
+    max-width: 80%;
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: inherit;
+}
+
+.anime-name:hover {
+    text-decoration: underline;
+    color: coral;
+}
