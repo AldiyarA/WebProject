@@ -1,0 +1,40 @@
+:host {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.genre {
+    margin: 15px 0;
+}
+
+.genre-name {
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    margin: 0 10px;
+    font-size: 1.7em;
+    font-weight: 500;
+}
+
+.filter-btn {
+    width: fit-content;
+    overflow-wrap: break-word;
+    padding: 5px 30px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    font-weight: 500;
+    font-family: inherit;
+    border: 1px rgb(126, 126, 126) solid;
+    border-radius: 5px;
+}
+
+.filter {
+    background-color: cornflowerblue;
+}
+
+.reset {
+    background-color: crimson;
+}

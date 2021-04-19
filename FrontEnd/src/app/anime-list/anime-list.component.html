@@ -1,1 +1,7 @@
-<p>anime-list works!</p>
+<div *ngFor="let anime of animes" class="anime">
+    <a class="photo-link"><img [src]="anime.photo_url" 
+                                class="anime-photo"
+                                [routerLink]="['/', 'anime', anime.id]"></a>
+    <a class="anime-name" 
+       [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
+</div>

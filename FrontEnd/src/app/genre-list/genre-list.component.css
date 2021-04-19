@@ -1,0 +1,25 @@
+:host {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.genre {
+    margin: 30px 0;
+}
+
+.genre-link {
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.7em;
+    font-weight: 500;
+    color: inherit;
+}
+
+.genre-link:hover {
+    text-decoration: underline;
+    color: coral;
+}

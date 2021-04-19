@@ -1,1 +1,7 @@
-<p>filter works!</p>
+<div *ngFor="let genre of genres" class="genre">
+    <input type="checkbox" [(ngModel)]="checkedGenres[genre.id]">
+    <span class="genre-name">{{genre.name}}</span>
+</div>
+
+<button class="filter-btn filter" (click)="submit()">Filter</button>
+<button class="filter-btn reset" (click)="clear()">Reset filters</button>
