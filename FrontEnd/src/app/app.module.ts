@@ -13,7 +13,12 @@ import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { GenreDetailComponent } from './genre-detail/genre-detail.component';
+<<<<<<< HEAD
 import { ArticleComponent } from './article/article.component';
+=======
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+>>>>>>> 4863e37df09b41f47a29697ef5f636277229bb0f
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { ArticleComponent } from './article/article.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
