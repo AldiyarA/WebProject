@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Article} from '../models/article';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  @Input() article: Article = undefined;
+  @Output() update = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  save(): void{
+    this.update.emit(this.article);
+  }
 }

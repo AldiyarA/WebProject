@@ -16,15 +16,12 @@ import {characters} from '../models/characters';
 export class AnimeDetailComponent implements OnInit {
   anime: Anime = undefined;
   articles: Article[];
-  genres:Genre[];
-  characters:Character[];
+  genres: Genre[];
+  characters: Character[];
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.loadAnime();
-    this.loadArticle();
-    this.loadGenre();
-    this.loadCharacters();
   }
   loadAnime(): void{
     this.route.paramMap.subscribe((param) => {
@@ -32,15 +29,20 @@ export class AnimeDetailComponent implements OnInit {
       console.log(id);
       this.anime = animeList.find(x => x.id === id);
       console.log(this.anime);
+      this.loadArticle();
+      this.loadGenre();
+      this.loadCharacters();
     });
   }
-  loadArticle():void{
-    this.articles=articles;
+  loadArticle(): void{
+    this.articles = articles;
   }
-  loadGenre():void{
-    this.genres=genres;
+  loadGenre(): void{
+    this.genres = genres;
   }
-  loadCharacters():void{
-    this.characters=characters
+  loadCharacters(): void{
+    this.characters = characters;
+  }
+  updateArticle(article: Article): void{
   }
 }

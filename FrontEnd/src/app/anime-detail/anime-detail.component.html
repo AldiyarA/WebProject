@@ -18,7 +18,7 @@
                 <li class="contestList"><a href="anime/{{anime.id}}/#characters">Characters</a></li>
               </ul>
           </div>
-          <div> 
+          <div>
               <a href="anime/{{anime.id}}/#characters"><button class="Characters">Characters</button></a>
                 <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
           </div>
@@ -29,10 +29,10 @@
                     <div class="genreButt"><button>Genre Detail</button></div>
               </div>
           </div>
-          
+
       </div>
       <div class= "anime_detailRight">
-          
+
           <div *ngIf= "anime.english_name" class="rightnames">
               <p>{{ anime.english_name }}</p>
           </div>
@@ -73,19 +73,19 @@
       </div>
   </div>
   <div *ngFor="let article of articles;index as i">
-
-    <div *ngIf= "article.name" id="article-{{article.id}}">
-        <h1>{{article.name}}</h1>
-    </div>
-    <div *ngIf= "article.content">
-        {{article.content}}
-    </div>
+    <app-article [article]="article" (update)="updateArticle($event)"></app-article>
+<!--    <div *ngIf= "article.name" id="article-{{article.id}}">-->
+<!--        <h1>{{article.name}}</h1>-->
+<!--    </div>-->
+<!--    <div *ngIf= "article.content">-->
+<!--        {{article.content}}-->
+<!--    </div>-->
 
 </div>
 <div id= "characters"  class="charactersList">
     <div *ngFor="let character of characters">
             <div>{{character.original_name}}</div>
             <div><img src={{character.photo_url}} alt=""></div>
-    </div>  
+    </div>
 </div>
 </div>
