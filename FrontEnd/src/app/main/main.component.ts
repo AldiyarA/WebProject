@@ -22,23 +22,5 @@ export class MainComponent implements OnInit {
   }
 
   private loadCharacter(): void{
-    this.characterService.getCharacters().subscribe(characters => {
-      this.characters = characters;
-    });
-    this.characterService.getCharacter(1).subscribe(character => {
-      this.character = character;
-      this.characterService.getAnimeList(character.id).subscribe(animeList => {
-        this.animeList = animeList;
-      });
-      this.characterService.getArticles(character.id).subscribe(articles => {
-        this.articles = articles;
-      });
-    });
-  }
-  addAnime(): void{
-    this.characterService.addAnime(this.character.id, 3).subscribe(() => {this.ngOnInit(); });
-  }
-  deleteAnime(id: number): void{
-    this.characterService.deleteAnime(this.character.id, id).subscribe(() => {this.ngOnInit(); });
   }
 }
