@@ -1,0 +1,4 @@
+from .genreSerializer import GenreSerializer, AnimeCharacterSerializer, GenreAnimeSerializer
+from .animeSerializer import AnimeSerializer
+from .characterSerializer import CharacterSerializer
+from .articleSerializer import ArticleSerializer
