@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Character} from '../models/character';
-import {CharacterService} from '../services/character.service';
 import {Anime} from '../models/anime';
-import {Article} from '../models/article';
-import {templateJitUrl} from '@angular/compiler';
+import {Genre} from '../models/genre';
+import {GenreService} from '../services/genre.service';
 
 @Component({
   selector: 'app-main',
@@ -11,16 +9,22 @@ import {templateJitUrl} from '@angular/compiler';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  characters: Character[] = [];
-  character: Character = undefined;
   animeList: Anime[] = [];
-  articles: Article[] = [];
-  constructor(private characterService: CharacterService) { }
+  genres: Genre[] = [];
+  genre: Genre = undefined;
+  constructor(private genreService: GenreService) { }
 
   ngOnInit(): void {
-    this.loadCharacter();
+    this.loadGenres();
   }
 
-  private loadCharacter(): void{
+  private loadGenres(): void{
+    this.genreService.getGenres().subscribe(genres => {this.genres = genres; });
+    this.genreService.getGenre(1).subscribe(genre => {
+      this.genre = genre;
+      this.genreService.getAnimeList(genre.id).subscribe(animeList => {
+        this.animeList = animeList;
+      });
+    });
   }
 }

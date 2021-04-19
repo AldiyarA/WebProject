@@ -1,2 +1,11 @@
 <p>main works!</p>
 <h1>Welcome to main page</h1>
+<div *ngIf="genres">
+  <h1 *ngFor="let genre of genres">{{genre.id}} - {{genre.name}}</h1>
+</div>
+<div *ngIf="genre">
+  <h1>{{genre.id}} - {{genre.name}}</h1>
+  <div *ngFor="let anime of animeList">
+    <h1>{{anime.id}} - {{anime.english_name}}</h1>
+  </div>
+</div>
