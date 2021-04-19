@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Anime } from '../models/anime';
 import { Genre } from '../models/genre';
-import { AnimeService } from '../services/anime.service'
+import { AnimeService } from '../services/anime.service';
 
 @Component({
   selector: 'app-anime-list',
@@ -39,7 +39,7 @@ export class AnimeListComponent implements OnInit {
   loadGenres(): void{
     this.route.paramMap.subscribe((param) => {
       const idsString = param.get('ids');
-      if (!idsString) return;
+      if (!idsString) { return; }
 
       this.genreIDs = idsString.split('-').map(i => +i);
     });
