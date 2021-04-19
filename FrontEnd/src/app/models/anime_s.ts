@@ -22,7 +22,7 @@ export const animeList: Anime[] = [
         company: '',
         author: 'Eiichiro Oda',
         description: 'One Piece is a Japanese manga series written and illustrated by Eiichiro Oda. It has been serialized in Shueisha\'s Weekly Shōnen Jump magazine since July 1997, with its individual chapters compiled into 98 tankōbon volumes as of February 2021. The story follows the adventures of Monkey D. Luffy, a boy whose body gained the properties of rubber after unintentionally eating a Devil Fruit. With his crew of pirates, named the Straw Hat Pirates, Luffy explores the Grand Line in search of the world\'s',
-        photo_url: 'https://lh3.googleusercontent.com/proxy/34KExfvjaNX7zEE5RtmebwFxMfgIL_wNq8FEk5tCYCE4TbgrVHgw-at5uN3bjF0PZpY8DKmi6w899qwacS0p3fdZqjwCPDxyp38'
+        photo_url: 'https://i.pinimg.com/originals/e6/ba/0a/e6ba0a0e1a76e2fad592076f37bc50a3.jpg'
     }
 
 ];
