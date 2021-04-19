@@ -1,0 +1,45 @@
+:host {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+:host::after {
+    content: "";
+    flex: auto;
+}
+
+.character {
+    display: flex;
+    width: 21%;
+    margin: 2%;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.avatar-link {
+    width: 80%;
+}
+
+.character-avatar {
+    width: 100%;
+    cursor: pointer;
+}
+
+.character-name {
+    max-width: 80%;
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: inherit;
+}
+
+.character-name:hover {
+    text-decoration: underline;
+    color: coral;
+}
