@@ -7,7 +7,6 @@
             <p *ngIf= "anime.description" class="description">
                 {{ anime.description }}
             </p>
-
             <div class="contents">
                 <h3>Contents</h3>
                 <ul style="list-style-type:none;" >
@@ -29,7 +28,6 @@
                     <a class="genreButt"   [routerLink]="['/', 'genre', genre.id]"><button>Genre Detail</button></a>
                 </div>
             </div>
-
         </div>
         <div class= "anime_detailRight">
 
@@ -74,17 +72,15 @@
     </div>
   <div *ngFor="let article of articles">
     <app-article [article]="article" (update)="updateArticle($event)"></app-article>
-<!--    <div *ngIf= "article.name" id="article-{{article.id}}">-->
-<!--        <h1>{{article.name}}</h1>-->
-<!--    </div>-->
-<!--    <div *ngIf= "article.content">-->
-<!--        {{article.content}}-->
-<!--    </div>-->
 </div>
 <div id="characters" class="characterList">
     <div *ngFor="let character of characters" class="anime-character" >
-        <a class="anime-avatar-link"><img [src]="character.photo_url"     class="anime-character-avatar"
-                [routerLink]="['/', 'characters', character.id]"></a>
+        <a class="anime-avatar-link">
+            <img [src]="character.photo_url"    *ngIf="character.photo_url"  class="anime-character-avatar"
+                [routerLink]="['/', 'characters', character.id]">
+            <img src="../../assets/images/no-image-available.png"   *ngIf="!character.photo_url"  class="anime-character-avatar"
+                [routerLink]="['/', 'characters', character.id]">
+            </a>
         <a class="anime-character-name"   [routerLink]="['/', 'characters', character.id]">{{character.english_name}}</a>
     </div>
 </div>
