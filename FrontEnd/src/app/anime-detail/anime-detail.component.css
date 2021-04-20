@@ -2,6 +2,7 @@
     padding-top:3%;
     display:flex;
     padding:20px;
+    justify-content: space-between;
 }
 .name{
     margin-top:-7% ;
@@ -11,6 +12,10 @@
     background-color: rgb(120,170,245);
     border:3px solid aqua;
     border-radius: 3px;
+    width:98%;
+    font-size:150%;
+    color:black;
+    font-weight: bold;
 }
 .anime_detailRight{
     padding-left: 0.5% ;
@@ -18,21 +23,25 @@
     border: 2px solid blue;
     border-radius: 6px;
     height:max-content;
+    
 }
 .anime_detailLeft{
     padding-left:1%;
     padding-top:5%;
+    width: 98%;
 }
-.rightnames{
+.rightname{
     text-align: center;
     background-color: rgb(120,170,245);
     font-weight: bold;
     border: 2px solid coral;
+    width:100%;
+    font-size:100%;
 }
 .manage{
     background-color:aqua;
-    padding-left: 41%;
-    padding-right:41%;
+    width: 100%;
+    text-align: center;
 }
 .photo{
     width:300px;
@@ -61,6 +70,8 @@
 .contestList{
     padding-top: 3%;
     padding-left:20%;
+    display: flex;
+    justify-content: space-between;
 }
 a { 
     text-decoration: none;
@@ -69,7 +80,6 @@ a:hover {
     text-decoration: underline; 
 }
 .description{
-    
     font-size: 120%;
     padding:2%;
 }
@@ -92,12 +102,14 @@ a:hover {
     background-color: rgb(220,155,71);
     justify-content:space-between;
 }
-.charactersList{
+.charactersList,.genre-buttons-space{
     display:flex;
-    flex-flow: row wrap;
+}
+.genre-delete-button{
+    background-color: red;
+    border: 2px solid rgb(220,155,71);
 }
 .genreName,.genreButt{
-    
     padding-top:0.6%;
     padding-bottom:0.6%;
 }
@@ -106,6 +118,15 @@ a:hover {
 }
 .genreButt{
     padding-right:1%;
+}
+.text-area{
+    resize: none;
+    border: none;
+    background-color: transparent;
+    width: 96%;
+    color:black;
+    height: 700px;
+    font-size: 16px;
 }
 
 .anime-character {
@@ -139,10 +160,33 @@ a:hover {
 }
 .characterList{
     padding-bottom: 10%;;
-
     margin: auto;
     margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+}
+.input-photo-url{
+    width:100%;
+    background-color: transparent;
+}
+.input-characteristics{
+    background-color: transparent;
+}
+.content-add-space{
+    display:flex;
+    justify-content: space-between;
+    width:115%;
+}
+.content-add-button,.content-delete-button{
+    padding:1% 2% 1% 2%;
+    font-size:14px;
+    font-weight: bold;
+    border: 2px solid rgb(220,155,71);
+}
+.content-add-button{
+    background-color: rgb(120,170,245);
+}
+.content-delete-button{
+    background-color: red;
 }

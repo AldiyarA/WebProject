@@ -1,1 +1,101 @@
-<p>character-detail works!</p>
+<div *ngIf="character">
+    <div class= "flex-container">
+        <div class= "character_detailLeft">
+            <input type="text"  [disabled]="!managing"  [(ngModel)]="character.english_name" class="name">
+
+            <div *ngIf= "character.description" >
+                <p *ngIf="!managing" class="description">
+                    {{ character.description }}
+                </p>
+                <textarea class="text-area" *ngIf="managing"
+                    [(ngModel)]="character.description"></textarea>
+            </div>
+
+            <div class="contents" *ngIf="!managing">
+                <div class="content-add-space">
+                    <h3>Contents</h3>
+                    <button class="content-add-button">Add</button>
+                </div>
+                <ul style="list-style-type:none;" >
+                    <li class="contestList" *ngFor ="let article of articles">
+                        <a href="characters/{{character.id}}/#article-{{article.id}}">{{article.name}}</a>
+                        <button class="content-delete-button">Delete</button>
+                    </li>
+                    <li class="contestList">
+                        <a href="characters/{{character.id}}/#anime-list">Anime List</a>
+                        <button class="content-delete-button">Delete</button>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <div class= "character_detailRight">
+
+            <div *ngIf= "character.english_name" >
+                <p *ngIf="!managing"  class="rightnames">{{ character.english_name }}</p>
+                <input type="text" *ngIf="managing" [(ngModel)]="character.english_name"  class="rightnames">
+            </div>
+
+            <div>
+                <div *ngIf="!managing">
+                    <img src='{{character.photo_url}}' *ngIf="character.photo_url" class="photo">
+                    <img src='../../assets/images/no-image-available.png' *ngIf="!character.photo_url" class="photo">
+                </div>
+                <input type="text"  *ngIf="managing" [(ngModel)]="character.photo_url" class="input-photo-url">
+            </div>
+            
+            <p class="rightnames"> Characteristics</p>
+
+            <div *ngIf= "character.original_name" class="characteristics-flex-names">
+                <p>Original name</p>
+                <p *ngIf="!managing">{{ character.original_name }}</p>
+                <input type="text" [(ngModel)]="character.original_name" *ngIf="managing" class="input-characteristics">
+            </div>
+
+            <div *ngIf= "character.english_name" class="characteristics-flex-names">
+                <p>English name</p>
+                <p *ngIf="!managing">{{ character.english_name }}</p>
+                <input type="text" [(ngModel)]="character.english_name" *ngIf="managing" class="input-characteristics">
+            </div>
+
+            <div *ngIf= "character.alias" class="characteristics-flex">
+                <p>Alias</p>
+                <p *ngIf="!managing">{{ character.alias }}</p>
+                <input type="text" [(ngModel)]="character.alias" *ngIf="managing" class="input-characteristics">
+            </div>
+
+            <div *ngIf= "character.race" class="characteristics-flex">
+                <p>Race</p>
+                <p *ngIf="!managing">{{ character.race }}</p>
+                <input type="text" [(ngModel)]="character.race" *ngIf="managing" class="input-characteristics">
+            </div>
+            <div *ngIf= "character.gender" class="characteristics-flex">
+                <p>Gender</p>
+                <p *ngIf="!managing">{{ character.gender }}</p>
+                <input type="text" [(ngModel)]="character.gender" *ngIf="managing" class="input-characteristics">
+            </div>
+            <div *ngIf= "character.age" class="characteristics-flex">
+                <p>Age</p>
+                <p *ngIf="!managing">{{ character.age }}</p>
+                <input type="text" [(ngModel)]="character.age" *ngIf="managing" class="input-characteristics">
+            </div>
+            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
+        </div>
+    </div>
+  <div *ngFor="let article of articles">
+    <app-article [article]="article" (update)="updateArticle($event)"></app-article>
+</div>
+<div id="anime-list" class="anime-List">
+    <div *ngFor="let anime of animes" class="character-anime" >
+        <a class="character-avatar-link">
+            <img [src]="anime.photo_url"    *ngIf="anime.photo_url"  class="character-anime-avatar"
+                [routerLink]="['/', 'anime', anime.id]">
+            <img src="../../assets/images/no-image-available.png"   *ngIf="!anime.photo_url"  class="character-anime-avatar"
+                [routerLink]="['/', 'anime', anime.id]">
+            </a>
+        <a class="character-anime-name"   [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
+    </div>
+</div>
+</div>

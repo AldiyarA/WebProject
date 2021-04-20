@@ -1,73 +1,110 @@
 <div *ngIf="anime">
     <div class= "flex-container">
         <div class= "anime_detailLeft">
-            <div *ngIf= "anime.english_name" class="name">
-                <h1>{{ anime.english_name }}</h1>
-            </div>
-            <p *ngIf= "anime.description" class="description">
-                {{ anime.description }}
-            </p>
-            <div class="contents">
-                <h3>Contents</h3>
-                <ul style="list-style-type:none;" >
 
+            <input type="text"  [disabled]="!managing"  [(ngModel)]="anime.english_name" class="name">
+
+            <div *ngIf= "anime.description" >
+                <p *ngIf="!managing" class="description">
+                    {{ anime.description }}
+                </p>
+                <textarea class="text-area" *ngIf="managing"
+                    [(ngModel)]="anime.description"></textarea>
+            </div>
+
+            <div class="contents" *ngIf="!managing" >
+                <div class="content-add-space">
+                    <h3>Contents</h3>
+                    <button class="content-add-button">Add</button>
+                </div>
+                <ul style="list-style-type:none;">
                     <li class="contestList" *ngFor ="let article of articles">
                         <a href="anime/{{anime.id}}/#article-{{article.id}}">{{article.name}}</a>
+                        <button class="content-delete-button">Delete</button>
                     </li>
-                    <li class="contestList"><a href="anime/{{anime.id}}/#characters">Characters</a></li>
+                    <li class="contestList">
+                        <a href="anime/{{anime.id}}/#characters">Characters</a>
+                        <button class="content-delete-button">Delete</button>
+                    </li>
                 </ul>
             </div>
-            <div>
+
+            <div *ngIf="!managing">
                 <a href="anime/{{anime.id}}/#characters"><button class="Characters">Characters</button></a>
                     <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
             </div>
-            <div>
+            
+            <div *ngIf="!managing">
                 <button class="Genres">Genres</button>
                 <div class="genreList" *ngFor = "let genre of genres">
                     <a class="genreName"   [routerLink]="['/', 'genre', genre.id]">{{genre.name}}</a>
-                    <a class="genreButt"   [routerLink]="['/', 'genre', genre.id]"><button>Genre Detail</button></a>
+                    <div class="genre-buttons-space">
+                        <a class="genreButt"   [routerLink]="['/', 'genre', genre.id]"><button>Genre Detail</button></a>
+                        <button class="genre-delete-button">Delete</button>
+                    </div>
                 </div>
             </div>
+
         </div>
         <div class= "anime_detailRight">
 
-            <div *ngIf= "anime.english_name" class="rightnames">
-                <p>{{ anime.english_name }}</p>
+            <div *ngIf= "anime.english_name" >
+                <p *ngIf="!managing"  class="rightname">{{ anime.english_name }}</p>
+                <input type="text" *ngIf="managing" [(ngModel)]="anime.english_name"  class="rightname">
             </div>
+
+
             <div>
-                <img src='{{anime.photo_url}}' *ngIf="anime.photo_url" class="photo">
+                <div *ngIf="!managing">
+                     <img src='{{anime.photo_url}}' *ngIf="anime.photo_url" class="photo">
                 <img src='../../assets/images/no-image-available.png' *ngIf="!anime.photo_url" class="photo">
+                </div>
+                <input type="text"  *ngIf="managing" [(ngModel)]="anime.photo_url" class="input-photo-url">
             </div>
-            <p class="rightnames"> Characteristics</p>
+
+
+            <p class="rightname"> Characteristics</p>
+
+
             <div *ngIf= "anime.country" class="characteristics-flex">
-                <div>Country</div>
-                <div>{{ anime.country }}</div>
+                <p>Country</p>
+                <p *ngIf="!managing">{{ anime.country }}</p>
+                <input type="text" [(ngModel)]="anime.country" *ngIf="managing" class="input-characteristics">
             </div>
+
             <div *ngIf= "anime.original_name" class="characteristics-flex-names">
-                <div>Original name</div>
-                <div>{{ anime.original_name }}</div>
+                <p>Original name</p>
+                <p *ngIf="!managing">{{ anime.original_name }}</p>
+                <input type="text" [(ngModel)]="anime.original_name" *ngIf="managing" class="input-characteristics">
             </div>
+            
             <div *ngIf= "anime.transcription" class="characteristics-flex-names">
-                <div>Transcription</div>
-                <div>{{ anime.transcription }}</div>
+                <p>Transcription</p>
+                <p *ngIf="!managing">{{ anime.transcription }}</p>
+                <input type="text" [(ngModel)]="anime.transcription" *ngIf="managing" class="input-characteristics">
             </div>
             <div *ngIf= "anime.english_name" class="characteristics-flex">
-                <div>English name</div>
-                <div>{{ anime.english_name }}</div>
+                <p>English name</p>
+                <p *ngIf="!managing">{{ anime.english_name }}</p>
+                <input type="text" [(ngModel)]="anime.english_name" *ngIf="managing" class="input-characteristics">
             </div>
             <div *ngIf= "anime.year" class="characteristics-flex">
-                <div>Year</div>
-                <div>{{ anime.year }}</div>
+                <p>Year</p>
+                <p *ngIf="!managing">{{ anime.year }}</p>
+                <input type="text" [(ngModel)]="anime.year" *ngIf="managing" class="input-characteristics">
             </div>
             <div *ngIf= "anime.company" class="characteristics-flex">
-                <div>Company</div>
-                <div>{{ anime.company }}</div>
+                <p>Company</p>
+                <p *ngIf="!managing">{{ anime.company }}</p>
+                <input type="text" [(ngModel)]="anime.company" *ngIf="managing" class="input-characteristics">
             </div>
             <div *ngIf= "anime.author" class="characteristics-flex-names">
-                <div>Author</div>
-                <div>{{ anime.author }}</div>
+                <p>Author</p>
+                <p *ngIf="!managing">{{ anime.author }}</p>
+                <input type="text" [(ngModel)]="anime.author" *ngIf="managing" class="input-characteristics">
             </div>
-            <button class="manage">MANAGE</button>
+            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
         </div>
     </div>
   <div *ngFor="let article of articles">

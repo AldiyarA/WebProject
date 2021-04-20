@@ -3,7 +3,7 @@
     <div class="buttons">
         <button (click)="managing=true" *ngIf ="!managing" class="ChangeButt">Manage</button>
         <button (click)="save()" *ngIf ="managing" class="ChangeButt">Submit</button>
-        <button class="ChangeButt"> Delete</button>
+        <button class="DeleteButt"> Delete</button>
     </div>
 </div>
 <textarea class="text-area" [disabled]="!managing" 

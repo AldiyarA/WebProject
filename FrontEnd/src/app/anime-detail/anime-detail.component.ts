@@ -18,6 +18,7 @@ export class AnimeDetailComponent implements OnInit {
   articles: Article[];
   genres: Genre[];
   characters: Character[];
+  managing=false;
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -33,6 +34,9 @@ export class AnimeDetailComponent implements OnInit {
       this.loadGenre();
       this.loadCharacters();
     });
+  }
+  save():void{
+    this.managing=false;
   }
   loadArticle(): void{
     this.articles = articles;

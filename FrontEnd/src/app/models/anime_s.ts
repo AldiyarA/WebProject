@@ -1,7 +1,7 @@
 import {Anime} from './anime';
 export const animeList: Anime[] = [
     {
-        id: 3,
+        id: 2,
         country: 'Japan',
         original_name: 'Charlotte',
         transcription: 'Charlotte',
@@ -13,7 +13,7 @@ export const animeList: Anime[] = [
         photo_url: ''
     },
     {
-        id: 2,
+        id: 1,
         country: 'Japan',
         original_name: 'ワンピース',
         transcription: 'Wanpīsu',

@@ -1,0 +1,176 @@
+.flex-container{
+    padding-top:3%;
+    display:flex;
+    padding:20px;
+}
+.name{
+    margin-top:-7% ;
+    padding-top:2%;
+    padding-bottom:2%;
+    text-align: center;
+    background-color: rgb(120,170,245);
+    border:3px solid aqua;
+    border-radius: 3px;
+    width:100%;
+    font-size:160%;
+    font-weight: bold;
+    color:black;
+}
+.character_detailRight{
+    padding-left: 0.5% ;
+    padding-right: 0.5% ;
+    border: 2px solid blue;
+    border-radius: 6px;
+    height:max-content;
+    width: 300px;
+}
+.character_detailLeft{
+    padding-left:1%;
+    padding-top:5%;
+    width: 98%;
+
+}
+.rightnames{
+    text-align: center;
+    background-color: rgb(120,170,245);
+    font-weight: bold;
+    border: 2px solid coral;
+    width:100%;
+    font-size:100%;
+}
+.manage{
+    background-color:aqua;
+    width: 100%;
+    text-align: center;
+}
+.photo{
+    width:300px;
+    height: auto;
+}
+.characteristics-flex,.characteristics-flex-names{
+    padding-top:2%;
+    padding-bottom: 2%;
+    display:flex;
+    justify-content: space-between;
+}
+.characteristics-flex{
+    border-bottom : 2px solid blue;
+}
+.contents{
+    border-left:3px solid rgb(243,128,75);
+    background-color: rgb(242,212,204);
+    border-radius: 3px;
+    margin-top: 5%;
+    padding-top:3%;
+    padding-bottom:3%;
+    padding-left:2%;
+    padding-right:15%;
+    font-size: 110%;
+}
+.contestList{
+    padding-top: 3%;
+    padding-left:20%;
+    display: flex;
+    justify-content: space-between;
+}
+.description{
+    font-size: 120%;
+    padding:2%;
+}
+.Animes{
+    padding-top:2%;
+    padding-bottom:2%;
+    background-color: bisque;
+    width:100%;
+    font-weight: bold;
+    font-size: 90%;
+    border: 2px solid rgb(220,155,71);
+}
+.Animes{
+    margin-top:-1%;
+}
+.buttontexts{
+    font-size: 110%;
+    border: 1px solid darkblue;
+    background-color:bisque;
+    text-decoration: none;
+}
+.charactersList,.animeList{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.animeList{
+    background-color: rgb(220,155,71);
+    margin-top:2%;
+}
+.text-area{
+    resize: none;
+    border: none;
+    background-color: transparent;
+    width: 96%;
+    color:black;
+    height: 700px;
+    font-size: 16px;
+}
+.input-photo-url{
+    width:100%;
+    background-color: transparent;
+}
+.input-characteristics{
+    background-color: transparent;
+}
+.character-anime {
+    display: flex;
+    width: 21%;
+    padding-top: 1%;
+    flex-flow: column nowrap;
+    align-items: center;
+    border:2px solid gold;
+    background-color:#ffd70050
+}
+.character-avatar-link {
+    width: 80%;
+}
+.character-anime-avatar {
+    width: 100%;
+    cursor: pointer;
+}
+.character-anime-name {
+    max-width: 80%;
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: inherit;
+}
+.character-anime-name:hover {
+    text-decoration: underline;
+    color: coral;
+}
+.anime-List{
+    padding-bottom: 10%;;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.content-add-space{
+    display:flex;
+    justify-content: space-between;
+    width:115%;
+}
+.content-add-button,.content-delete-button{
+    padding:1% 2% 1% 2%;
+    font-size:14px;
+    font-weight: bold;
+    border: 2px solid rgb(220,155,71);
+}
+.content-add-button{
+    background-color: rgb(120,170,245);
+}
+.content-delete-button{
+    background-color: red;
+}
