@@ -73,11 +73,11 @@
     display: flex;
     justify-content: space-between;
 }
-a { 
+a {
     text-decoration: none;
 }
-a:hover { 
-    text-decoration: underline; 
+a:hover {
+    text-decoration: underline;
 }
 .description{
     font-size: 120%;
@@ -136,7 +136,9 @@ a:hover {
     flex-flow: column nowrap;
     align-items: center;
     border:2px solid gold;
-    background-color:#ffd70050
+    background-color:#ffd70050;
+    margin-right: 30px;
+    margin-top: 20px;
 }
 .anime-avatar-link {
     width: 80%;
@@ -160,6 +162,7 @@ a:hover {
 }
 .characterList{
     padding-bottom: 10%;;
+    padding-left: 30px;
     margin: auto;
     margin-top: 50px;
     display: flex;

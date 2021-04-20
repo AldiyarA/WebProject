@@ -1,0 +1,15 @@
+<div class="add-characters-main">
+  <h1>Add characters</h1>
+  <button (click)="submit()" class="add-character-btn">Submit</button>
+</div>
+<div class="add-characterList" *ngIf="characters">
+  <div *ngFor="let character of characters" class="add-anime-character"
+       (click)="checkedCharacters[character.id]=!checkedCharacters[character.id]"
+  [ngClass]="{'chosen-character': checkedCharacters[character.id]}">
+    <a class="add-anime-avatar-link">
+      <img [src]="character.photo_url"    *ngIf="character.photo_url"  class="add-anime-character-avatar">
+      <img src="../../assets/images/no-image-available.png"   *ngIf="!character.photo_url"  class="add-anime-character-avatar">
+    </a>
+    <a class="add-anime-character-name">{{character.english_name}}</a>
+  </div>
+</div>

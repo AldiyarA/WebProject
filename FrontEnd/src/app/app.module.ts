@@ -16,6 +16,7 @@ import { GenreDetailComponent } from './genre-detail/genre-detail.component';
 import { ArticleComponent } from './article/article.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { AddCharactersComponent } from './add-characters/add-characters.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {FormsModule} from '@angular/forms';
     LoginComponent,
     GenreListComponent,
     GenreDetailComponent,
-    ArticleComponent
+    ArticleComponent,
+    AddCharactersComponent
   ],
   imports: [
     BrowserModule,
