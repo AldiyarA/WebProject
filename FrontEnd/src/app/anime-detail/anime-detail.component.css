@@ -62,14 +62,14 @@
     padding-top: 3%;
     padding-left:20%;
 }
-a { 
+a {
     text-decoration: none;
 }
-a:hover { 
-    text-decoration: underline; 
+a:hover {
+    text-decoration: underline;
 }
 .description{
-    
+
     font-size: 120%;
     padding:2%;
 }
@@ -97,7 +97,7 @@ a:hover {
     flex-flow: row wrap;
 }
 .genreName,.genreButt{
-    
+
     padding-top:0.6%;
     padding-bottom:0.6%;
 }
@@ -115,7 +115,9 @@ a:hover {
     flex-flow: column nowrap;
     align-items: center;
     border:2px solid gold;
-    background-color:#ffd70050
+    background-color:#ffd70050;
+    margin-right: 30px;
+    margin-top: 20px;
 }
 .anime-avatar-link {
     width: 80%;
@@ -139,10 +141,10 @@ a:hover {
 }
 .characterList{
     padding-bottom: 10%;;
-
+    padding-left: 30px;
     margin: auto;
     margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
