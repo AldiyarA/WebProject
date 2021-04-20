@@ -14,16 +14,15 @@
             <div class="contents" *ngIf="!managing">
                 <div class="content-add-space">
                     <h3>Contents</h3>
-                    <button class="content-add-button">Add</button>
+                    <button class="content-add-button" (click)="addArticle()">Add</button>
                 </div>
                 <ul style="list-style-type:none;" >
                     <li class="contestList" *ngFor ="let article of articles">
-                        <a href="characters/{{character.id}}/#article-{{article.id}}">{{article.name}}</a>
-                        <button class="content-delete-button">Delete</button>
+                        <a href="characters/{{character.id}}#article-{{article.id}}">{{article.name}}</a>
+                        <button class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
                     </li>
                     <li class="contestList">
-                        <a href="characters/{{character.id}}/#anime-list">Anime List</a>
-                        <button class="content-delete-button">Delete</button>
+                        <a href="characters/{{character.id}}#anime-list">Anime List</a>
                     </li>
                 </ul>
             </div>
@@ -44,7 +43,7 @@
                 </div>
                 <input type="text"  *ngIf="managing" [(ngModel)]="character.photo_url" class="input-photo-url">
             </div>
-            
+
             <p class="rightnames"> Characteristics</p>
 
             <div *ngIf= "character.original_name" class="characteristics-flex-names">
@@ -85,7 +84,7 @@
         </div>
     </div>
   <div *ngFor="let article of articles">
-    <app-article [article]="article" (update)="updateArticle($event)"></app-article>
+    <app-article [article]="article" (update)="updateArticle($event)" (onDelete)="deleteArticle(article.id)"></app-article>
 </div>
 <div id="anime-list" class="anime-List">
     <div *ngFor="let anime of animes" class="character-anime" >

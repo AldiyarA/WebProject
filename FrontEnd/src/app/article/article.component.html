@@ -3,9 +3,9 @@
     <div class="buttons">
         <button (click)="managing=true" *ngIf ="!managing" class="ChangeButt">Manage</button>
         <button (click)="save()" *ngIf ="managing" class="ChangeButt">Submit</button>
-        <button class="DeleteButt"> Delete</button>
+        <button class="DeleteButt" (click)="delete()"> Delete</button>
     </div>
 </div>
-<textarea class="text-area" [disabled]="!managing" 
-    [ngClass]="{'height-1': checkLength(100, 1000), 'height-2': checkLength(1000, 2000),'height-3': checkLength(2000, 5000),'height-4': checkLength(5000, 10000)}" 
+<textarea class="text-area" [disabled]="!managing"
+    [ngClass]="{'height-1': checkLength(100, 1000), 'height-2': checkLength(1000, 2000),'height-3': checkLength(2000, 5000),'height-4': checkLength(5000, 10000)}"
     [(ngModel)]="article.content"></textarea>

@@ -1,0 +1,9 @@
+<div class="add-genres-main">
+  <h1>Add genres</h1>
+  <button (click)="submit()" class="add-genre-btn">Submit</button>
+</div>
+<div class="genreList" *ngFor = "let genre of genres">
+  <div class="add-genre-name-box" [class]="{'chosen-genre': checkedGenres[genre.id]}" (click)="checkedGenres[genre.id]=!checkedGenres[genre.id]">
+    <span class="add-genre-name">{{genre.name}}</span>
+  </div>
+</div>

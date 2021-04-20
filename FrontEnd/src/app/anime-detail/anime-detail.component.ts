@@ -17,6 +17,7 @@ export class AnimeDetailComponent implements OnInit {
   characters: Character[];
   managing = false;
   addCharacter = false;
+  addGenre = false;
   constructor(private route: ActivatedRoute, private router: Router, private animeService: AnimeService) { }
 
   ngOnInit(): void {
@@ -35,6 +36,9 @@ export class AnimeDetailComponent implements OnInit {
   }
   save(): void{
     this.managing = false;
+    this.animeService.updateAnime(this.anime).subscribe(() => {
+      this.ngOnInit();
+    });
   }
   loadArticle(): void{
     this.animeService.getArticles(this.anime.id).subscribe(articles => {
@@ -51,10 +55,6 @@ export class AnimeDetailComponent implements OnInit {
       this.characters = characters;
     });
   }
-  updateArticle(article: Article): void{
-    this.animeService.updateArticle(this.anime.id, article);
-  }
-
   addCharacters(ids: number[]): void{
     let loading = 0;
     for (const id of ids){
@@ -73,5 +73,39 @@ export class AnimeDetailComponent implements OnInit {
     this.animeService.deleteCharacter(this.anime.id, id).subscribe(() => {
       this.ngOnInit();
     });
+  }
+  addArticle(): void{
+    this.animeService.addArticle(this.anime.id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  updateArticle(article: Article): void{
+    this.animeService.updateArticle(this.anime.id, article).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  deleteArticle(id: number): void{
+    this.animeService.deleteArticle(this.anime.id, id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  deleteGenre(id: number): void{
+    this.animeService.deleteGenre(this.anime.id, id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+
+  addGenres(ids: number[]): void{
+    this.addGenre = false;
+    let loading = 0;
+    for (const id of ids){
+      loading += 1;
+      this.animeService.addGenre(this.anime.id, id).subscribe(() => {
+        loading -= 1;
+        if (loading === 0){
+          this.ngOnInit();
+        }
+      });
+    }
   }
 }

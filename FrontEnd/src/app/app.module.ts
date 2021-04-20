@@ -18,6 +18,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AddCharactersComponent } from './add-characters/add-characters.component';
 import {AuthInterceptor} from './services/AuthInterceptor';
+import { AddGenreComponent } from './add-genre/add-genre.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AuthInterceptor} from './services/AuthInterceptor';
     GenreListComponent,
     GenreDetailComponent,
     ArticleComponent,
-    AddCharactersComponent
+    AddCharactersComponent,
+    AddGenreComponent
   ],
   imports: [
     BrowserModule,

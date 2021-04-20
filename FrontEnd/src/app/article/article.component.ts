@@ -9,6 +9,7 @@ import {Article} from '../models/article';
 export class ArticleComponent implements OnInit {
   @Input() article: Article = undefined;
   @Output() update = new EventEmitter();
+  @Output() onDelete = new EventEmitter();
   managing = false;
   constructor() { }
 
@@ -19,7 +20,10 @@ export class ArticleComponent implements OnInit {
     return this.article.content !== null && this.article.content.length >= len1 && this.article.content.length < len2;
   }
   save(): void{
-    this.managing=false;
+    this.managing = false;
     this.update.emit(this.article);
+  }
+  delete(): void{
+    this.onDelete.emit();
   }
 }

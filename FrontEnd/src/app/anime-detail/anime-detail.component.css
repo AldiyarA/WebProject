@@ -93,6 +93,12 @@ a:hover {
     font-size: 90%;
     border: 2px solid rgb(220,155,71);
 }
+.Genres{
+  font-size: 17px;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
 .buttontexts{
     font-size: 110%;
     background-color: rgb(220,155,71);
@@ -198,4 +204,9 @@ a:hover {
 .character-delete-btn{
   position: absolute;
   bottom: 20px;
+}
+.right-btn{
+  position: absolute;
+  right: 20px;
+  top: 7px;
 }

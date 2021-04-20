@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Anime} from '../models/anime';
-import {animeList} from '../models/anime_s';
 import {Article} from '../models/article';
-import {articles} from '../models/articles';
-import {Genre} from '../models/genre';
-import {genres} from '../models/genres';
 import {Character} from '../models/character';
-import {characters} from '../models/characters';
+import {CharacterService} from '../services/character.service';
 @Component({
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.css']
 })
 export class CharacterDetailComponent implements OnInit {
-  animes:Anime[];
+  animes: Anime[];
   articles: Article[];
   character: Character = undefined;
-  managing=false;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  managing = false;
+  constructor(private route: ActivatedRoute, private router: Router, private characterService: CharacterService) { }
 
   ngOnInit(): void {
     this.loadCharacter();
@@ -26,21 +22,40 @@ export class CharacterDetailComponent implements OnInit {
   loadCharacter(): void{
     this.route.paramMap.subscribe((param) => {
       const id = +param.get('id');
-      console.log(id);
-      this.character = characters.find(x => x.id === id);
-      this.loadArticle();
-      this.loadAnime();
+      this.characterService.getCharacter(id).subscribe(character => {
+        this.character = character;
+        this.loadArticle();
+        this.loadAnime();
+      });
     });
   }
   loadArticle(): void{
-    this.articles = articles;
+    this.characterService.getArticles(this.character.id).subscribe(articles => {
+      this.articles = articles;
+    });
   }
   loadAnime(): void{
-    this.animes = animeList;
+    this.characterService.getAnimeList(this.character.id).subscribe(animes => {
+      this.animes = animes;
+    });
   }
   updateArticle(article: Article): void{
+    this.characterService.updateArticle(this.character.id, article);
   }
-  save():void{
-    this.managing=false;
+  deleteArticle(id: number): void{
+    this.characterService.deleteArticle(this.character.id, id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  addArticle(): void{
+    this.characterService.addArticle(this.character.id).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  save(): void{
+    this.managing = false;
+    this.characterService.updateCharacter(this.character).subscribe(() => {
+      this.ngOnInit();
+    });
   }
 }
