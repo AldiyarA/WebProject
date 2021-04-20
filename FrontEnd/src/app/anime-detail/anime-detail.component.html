@@ -1,77 +1,77 @@
 <div *ngIf="anime">
-  <div class= "flex-container">
-      <div class= "anime_detailLeft">
-        <div *ngIf= "anime.english_name" class="name">
-            <h1>{{ anime.english_name }}</h1>
+    <div class= "flex-container">
+        <div class= "anime_detailLeft">
+            <div *ngIf= "anime.english_name" class="name">
+                <h1>{{ anime.english_name }}</h1>
+            </div>
+            <p *ngIf= "anime.description" class="description">
+                {{ anime.description }}
+            </p>
+
+            <div class="contents">
+                <h3>Contents</h3>
+                <ul style="list-style-type:none;" >
+
+                    <li class="contestList" *ngFor ="let article of articles">
+                        <a href="anime/{{anime.id}}/#article-{{article.id}}">{{article.name}}</a>
+                    </li>
+                    <li class="contestList"><a href="anime/{{anime.id}}/#characters">Characters</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="anime/{{anime.id}}/#characters"><button class="Characters">Characters</button></a>
+                    <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
+            </div>
+            <div>
+                <button class="Genres">Genres</button>
+                <div class="genreList" *ngFor = "let genre of genres">
+                    <a class="genreName"   [routerLink]="['/', 'genre', genre.id]">{{genre.name}}</a>
+                    <a class="genreButt"   [routerLink]="['/', 'genre', genre.id]"><button>Genre Detail</button></a>
+                </div>
+            </div>
+
         </div>
-          <p *ngIf= "anime.description" class="description">
-              {{ anime.description }}
-          </p>
+        <div class= "anime_detailRight">
 
-          <div class="contents">
-              <h3>Contents</h3>
-              <ul style="list-style-type:none;" >
-
-                  <li class="contestList" *ngFor ="let article of articles">
-                    <a href="anime/{{anime.id}}/#article-{{article.id}}">{{article.name}}</a>
-                </li>
-                <li class="contestList"><a href="anime/{{anime.id}}/#characters">Characters</a></li>
-              </ul>
-          </div>
-          <div>
-              <a href="anime/{{anime.id}}/#characters"><button class="Characters">Characters</button></a>
-                <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
-          </div>
-          <div>
-              <button class="Genres">Genres</button>
-              <div class="genreList" *ngFor = "let genre of genres">
-                    <div class="genreName">{{genre.name}}</div>
-                    <div class="genreButt"><button>Genre Detail</button></div>
-              </div>
-          </div>
-
-      </div>
-      <div class= "anime_detailRight">
-
-          <div *ngIf= "anime.english_name" class="rightnames">
-              <p>{{ anime.english_name }}</p>
-          </div>
-          <div *ngIf= "anime.photo_url" class="photo">
-              <img src='{{anime.photo_url}}'>
-          </div>
-
-          <p class="rightnames"> Characteristics</p>
-          <div *ngIf= "anime.country" class="characteristics-flex">
-              <div>Country</div>
-              <div>{{ anime.country }}</div>
-          </div>
-          <div *ngIf= "anime.original_name" class="characteristics-flex-names">
-              <div>Original name</div>
-              <div>{{ anime.original_name }}</div>
-          </div>
-          <div *ngIf= "anime.transcription" class="characteristics-flex-names">
-              <div>Transcription</div>
-              <div>{{ anime.transcription }}</div>
-          </div>
-          <div *ngIf= "anime.english_name" class="characteristics-flex">
-              <div>English name</div>
-              <div>{{ anime.english_name }}</div>
-          </div>
-          <div *ngIf= "anime.year" class="characteristics-flex">
-              <div>Year</div>
-              <div>{{ anime.year }}</div>
-          </div>
-          <div *ngIf= "anime.company" class="characteristics-flex">
-              <div>Company</div>
-              <div>{{ anime.company }}</div>
-          </div>
-          <div *ngIf= "anime.author" class="characteristics-flex-names">
-              <div>Author</div>
-              <div>{{ anime.author }}</div>
-          </div>
-          <button class="manage">MANAGE</button>
-      </div>
-  </div>
+            <div *ngIf= "anime.english_name" class="rightnames">
+                <p>{{ anime.english_name }}</p>
+            </div>
+            <div>
+                <img src='{{anime.photo_url}}' *ngIf="anime.photo_url" class="photo">
+                <img src='../../assets/images/no-image-available.png' *ngIf="!anime.photo_url" class="photo">
+            </div>
+            <p class="rightnames"> Characteristics</p>
+            <div *ngIf= "anime.country" class="characteristics-flex">
+                <div>Country</div>
+                <div>{{ anime.country }}</div>
+            </div>
+            <div *ngIf= "anime.original_name" class="characteristics-flex-names">
+                <div>Original name</div>
+                <div>{{ anime.original_name }}</div>
+            </div>
+            <div *ngIf= "anime.transcription" class="characteristics-flex-names">
+                <div>Transcription</div>
+                <div>{{ anime.transcription }}</div>
+            </div>
+            <div *ngIf= "anime.english_name" class="characteristics-flex">
+                <div>English name</div>
+                <div>{{ anime.english_name }}</div>
+            </div>
+            <div *ngIf= "anime.year" class="characteristics-flex">
+                <div>Year</div>
+                <div>{{ anime.year }}</div>
+            </div>
+            <div *ngIf= "anime.company" class="characteristics-flex">
+                <div>Company</div>
+                <div>{{ anime.company }}</div>
+            </div>
+            <div *ngIf= "anime.author" class="characteristics-flex-names">
+                <div>Author</div>
+                <div>{{ anime.author }}</div>
+            </div>
+            <button class="manage">MANAGE</button>
+        </div>
+    </div>
   <div *ngFor="let article of articles;index as i">
     <app-article [article]="article" (update)="updateArticle($event)"></app-article>
 <!--    <div *ngIf= "article.name" id="article-{{article.id}}">-->
@@ -80,12 +80,10 @@
 <!--    <div *ngIf= "article.content">-->
 <!--        {{article.content}}-->
 <!--    </div>-->
-
 </div>
-<div id= "characters"  class="charactersList">
-    <div *ngFor="let character of characters">
-            <div>{{character.original_name}}</div>
-            <div><img src={{character.photo_url}} alt=""></div>
-    </div>
+<div *ngFor="let character of characters" class="character">
+    <a class="avatar-link"><img [src]="character.photo_url"     class="character-avatar"
+            [routerLink]="['/', 'characters', character.id]"></a>
+    <a class="character-name"   [routerLink]="['/', 'characters', character.id]">{{character.english_name}}</a>
 </div>
 </div>
