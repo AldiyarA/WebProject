@@ -14,9 +14,10 @@ import { LoginComponent } from './login/login.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { GenreDetailComponent } from './genre-detail/genre-detail.component';
 import { ArticleComponent } from './article/article.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AddCharactersComponent } from './add-characters/add-characters.component';
+import {AuthInterceptor} from './services/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,13 @@ import { AddCharactersComponent } from './add-characters/add-characters.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

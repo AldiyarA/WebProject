@@ -20,8 +20,8 @@ const routes: Routes = [
   {path : 'anime/filter', redirectTo: 'anime/filter/', pathMatch: 'full'},
   {path : 'filter/:ids', component: FilterComponent},
   {path : 'filter', redirectTo: 'filter/', pathMatch: 'full'},
-  {path : 'genre', component: GenreListComponent},
-  {path : 'genre/:id', component: GenreDetailComponent},
+  {path : 'genres', component: GenreListComponent},
+  {path : 'genres/:id', component: GenreDetailComponent},
   {path : 'characters', component: CharacterListComponent},
   {path : 'characters/:id', component: CharacterDetailComponent},
   {path : 'anime/:anime_id', component: AnimeDetailComponent}

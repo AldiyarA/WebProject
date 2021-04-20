@@ -15,7 +15,8 @@ export class AnimeDetailComponent implements OnInit {
   articles: Article[];
   genres: Genre[];
   characters: Character[];
-  managing=false;
+  managing = false;
+  addCharacter = false;
   constructor(private route: ActivatedRoute, private router: Router, private animeService: AnimeService) { }
 
   ngOnInit(): void {
@@ -32,8 +33,8 @@ export class AnimeDetailComponent implements OnInit {
       });
     });
   }
-  save():void{
-    this.managing=false;
+  save(): void{
+    this.managing = false;
   }
   loadArticle(): void{
     this.animeService.getArticles(this.anime.id).subscribe(articles => {
@@ -52,5 +53,25 @@ export class AnimeDetailComponent implements OnInit {
   }
   updateArticle(article: Article): void{
     this.animeService.updateArticle(this.anime.id, article);
+  }
+
+  addCharacters(ids: number[]): void{
+    let loading = 0;
+    for (const id of ids){
+      loading += 1;
+      this.animeService.addCharacter(this.anime.id, id).subscribe(() => {
+        loading -= 1;
+        if (loading === 0){
+          this.ngOnInit();
+        }
+      });
+    }
+    this.addCharacter = false;
+  }
+  deleteCharacter(id: number): void{
+    console.log(id);
+    this.animeService.deleteCharacter(this.anime.id, id).subscribe(() => {
+      this.ngOnInit();
+    });
   }
 }

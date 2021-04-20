@@ -23,7 +23,7 @@
     border: 2px solid blue;
     border-radius: 6px;
     height:max-content;
-    
+
 }
 .anime_detailLeft{
     padding-left:1%;
@@ -130,6 +130,8 @@ a:hover {
 }
 
 .anime-character {
+  position: relative;
+  padding-bottom: 50px;
     display: flex;
     width: 21%;
     padding-top: 1%;
@@ -192,4 +194,8 @@ a:hover {
 }
 .content-delete-button{
     background-color: red;
+}
+.character-delete-btn{
+  position: absolute;
+  bottom: 20px;
 }

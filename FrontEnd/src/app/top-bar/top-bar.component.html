@@ -12,13 +12,13 @@
         <div class="class-4" (click)="router.navigate(['characters'])">
           <h1>Character page</h1>
         </div>
-        <div class="class-4" (click)="router.navigate(['genre'])">
+        <div class="class-4" (click)="router.navigate(['genres'])">
           <h1>Genres page</h1>
         </div>
       </div>
     </div>
   </div>
-  <div class="class-1">
+  <div *ngIf="logged" class="class-1">
     <div class="class-2 class-btn-box">
       <h1 class="optional-btn top-optional-btn">Create</h1>
       <div class="class-3 class-5">
@@ -34,4 +34,6 @@
       </div>
     </div>
   </div>
+  <button class="login-btn" *ngIf="!logged" (click)="login()">Log In</button>
+  <button class="login-btn" *ngIf="logged" (click)="logout()">Log Out</button>
 </div>
