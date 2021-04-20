@@ -1,0 +1,46 @@
+.text-area{
+  resize: none;
+  border: none;
+  background-color: transparent;
+  width: 96%;
+  color:black;
+  height: 100px;
+  font-size: 16px;
+}
+.height-1{
+  height: 200px;
+}
+.height-2{
+  height: 500px;
+}
+.height-3{
+  height: 1000px;
+}
+.height-4{
+  height: 2000px;
+}
+.articleName{
+  padding-top:10px;
+  font-size: 18px;
+  color:black;
+  background-color: transparent;
+  outline:none;
+  border:none;
+}
+.articleName,.text-area{
+  margin:20px;
+}
+.flex-container{
+  display:flex;
+  justify-content: space-between;
+}
+.ChangeButt{
+  height: max-content;
+  margin-left:50px;
+  font-size: 15px;
+}
+.buttons{
+  display: flex;
+  margin-top:3%;
+  margin-right:3%;
+}

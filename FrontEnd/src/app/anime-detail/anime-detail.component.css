@@ -1,6 +1,7 @@
 .flex-container{
     padding-top:3%;
     display:flex;
+    padding:20px;
 }
 .name{
     margin-top:-7% ;
@@ -16,7 +17,6 @@
     padding-right: 0.5% ;
     border: 2px solid blue;
     border-radius: 6px;
-    position: relative;
     height:max-content;
 }
 .anime_detailLeft{
@@ -69,6 +69,7 @@ a:hover {
     text-decoration: underline; 
 }
 .description{
+    
     font-size: 120%;
     padding:2%;
 }
@@ -107,38 +108,22 @@ a:hover {
     padding-right:1%;
 }
 
-
-:host {
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-}
-
-:host::after {
-    content: "";
-    flex: auto;
-}
-
 .character {
     display: flex;
     width: 21%;
-    margin: 2%;
+    padding-top: 1%;
     flex-flow: column nowrap;
     align-items: center;
+    border:2px solid gold;
+    background-color:#ffd70050
 }
-
 .avatar-link {
     width: 80%;
 }
-
 .character-avatar {
     width: 100%;
     cursor: pointer;
 }
-
 .character-name {
     max-width: 80%;
     overflow-wrap: break-word;
@@ -148,8 +133,16 @@ a:hover {
     font-weight: 500;
     color: inherit;
 }
-
 .character-name:hover {
     text-decoration: underline;
     color: coral;
+}
+.characterList{
+    padding-bottom: 10%;;
+
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
