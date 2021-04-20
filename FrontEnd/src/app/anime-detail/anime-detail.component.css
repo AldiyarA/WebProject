@@ -108,7 +108,7 @@ a:hover {
     padding-right:1%;
 }
 
-.character {
+.anime-character {
     display: flex;
     width: 21%;
     padding-top: 1%;
@@ -117,14 +117,14 @@ a:hover {
     border:2px solid gold;
     background-color:#ffd70050
 }
-.avatar-link {
+.anime-avatar-link {
     width: 80%;
 }
-.character-avatar {
+.anime-character-avatar {
     width: 100%;
     cursor: pointer;
 }
-.character-name {
+.anime-character-name {
     max-width: 80%;
     overflow-wrap: break-word;
     padding: 15px 0;
@@ -133,7 +133,7 @@ a:hover {
     font-weight: 500;
     color: inherit;
 }
-.character-name:hover {
+.anime-character-name:hover {
     text-decoration: underline;
     color: coral;
 }
