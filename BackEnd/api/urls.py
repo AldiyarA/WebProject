@@ -1,9 +1,11 @@
 from django.urls import path
+from rest_framework_jwt.views import obtain_jwt_token
 
 from api.views import *
 
 
 urlpatterns = [
+    path('login/', obtain_jwt_token),
     path('genres/', genre_list),
     path('genres/<int:genre_id>/', genre_detail),
     path('genres/<int:genre_id>/anime/', genre_animes),
