@@ -6,14 +6,14 @@
 
             <div>
               <div *ngIf="!managing">
-                <p *ngFor="let description of descriptions">{{description}}<br></p>
+                <p *ngFor="let description of descriptions" class="content-box-1">{{description}}<br></p>
               </div>
                 <textarea class="text-area" *ngIf="managing"
                     [(ngModel)]="anime.description"></textarea>
             </div>
 
-            <div class="contents" *ngIf="!managing" >
-                <div class="content-add-space">
+            <div class="contents content-box" *ngIf="!managing">
+                <div class="content-add-space ">
                     <h3>Contents</h3>
                     <button class="content-add-button" (click)="addArticle()">Add</button>
                 </div>
@@ -22,24 +22,24 @@
                         <a href="anime/{{anime.id}}#article-{{article.id}}">{{article.name}}</a>
                         <button class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
                     </li>
-                    <li class="contestList">
+                    <li class="contestList ">
                         <a href="anime/{{anime.id}}#characters">Characters</a>
                     </li>
                 </ul>
             </div>
 
-            <div *ngIf="!managing">
+            <div *ngIf="!managing" class="content-box-1">
                 <a href="anime/{{anime.id}}#characters"><button class="Characters">Characters</button></a>
                     <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
             </div>
 
-            <div *ngIf="!managing">
+            <div *ngIf="!managing" class="content-box-1">
               <div class="Genres">
                 Genres
                 <button class="content-add-button right-btn" (click)="addGenre=true">Add</button>
               </div>
                 <div class="genreList" *ngFor = "let genre of genres">
-                    <a class="genreName"   [routerLink]="['/', 'genre', genre.id]">{{genre.name}}</a>
+                    <a class="genreName"   [routerLink]="['/', 'genres', genre.id]">{{genre.name}}</a>
                     <div class="genre-buttons-space">
                         <a class="genreButt"   [routerLink]="['/', 'genres', genre.id]"><button>Genre Detail</button></a>
                         <button class="genre-delete-button" (click)="deleteGenre(genre.id)">Delete</button>
