@@ -51,7 +51,7 @@
                 <input type="text" [(ngModel)]="character.original_name" *ngIf="managing" class="input-characteristics">
             </div>
 
-            <div class="characteristics-flex-names">
+            <div class="characteristics-flex">
                 <p>English name</p>
                 <p *ngIf="!managing">{{ character.english_name }}</p>
                 <input type="text" [(ngModel)]="character.english_name" *ngIf="managing" class="input-characteristics">
@@ -59,7 +59,10 @@
 
             <div class="characteristics-flex">
                 <p>Alias</p>
-                <p *ngIf="!managing">{{ character.alias }}</p>
+<!--                <p *ngIf="!managing">{{ character.alias }}</p>-->
+              <div *ngIf="!managing">
+                <p *ngFor="let alias of aliases" style="text-align: right">{{alias}}</p>
+              </div>
                 <input type="text" [(ngModel)]="character.alias" *ngIf="managing" class="input-characteristics">
             </div>
 

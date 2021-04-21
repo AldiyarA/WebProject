@@ -16,6 +16,7 @@ export class CharacterDetailComponent implements OnInit {
   managing = false;
   addAnime = false;
   descriptions = [];
+  aliases = [];
   constructor(private route: ActivatedRoute, private router: Router, private characterService: CharacterService) { }
 
   ngOnInit(): void {
@@ -26,7 +27,13 @@ export class CharacterDetailComponent implements OnInit {
       const id = +param.get('id');
       this.characterService.getCharacter(id).subscribe(character => {
         this.character = character;
-        this.descriptions = character.description.split('\n');
+        if (character.description){
+          this.descriptions = character.description.split('\n');
+        }
+        if (character.alias){
+          this.aliases = character.alias.split(',');
+        }
+        console.log(this.aliases);
         this.loadArticle();
         this.loadAnime();
       });
