@@ -17,6 +17,7 @@ export class FilterComponent implements OnInit {
     private genreService: GenreService
   ) {
     this.checkedGenres = {};
+    this.genres = [];
   }
 
   ngOnInit(): void {
