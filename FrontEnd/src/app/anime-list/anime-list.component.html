@@ -1,3 +1,6 @@
+<div class="row">
+    <button class="filter-btn" (click)="goToFilter()">Go to filters</button>
+</div>
 <div *ngFor="let anime of animes" class="anime">
     <a class="photo-link"><img [src]="anime.photo_url" 
                                 class="anime-photo"
