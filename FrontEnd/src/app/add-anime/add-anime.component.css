@@ -1,0 +1,52 @@
+.add-anime-btn{
+  font-size: 16px;
+  width: 100px;
+}
+.add-anime-main{
+  border-top: black 2px solid;
+  padding: 20px 0;
+  margin: 10px 60px 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.add-anime-list{
+  display: flex;
+  flex-flow: row wrap;
+}
+.add-anime {
+  display: flex;
+  width: 21%;
+  margin: 2%;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: gold 1px solid;
+  padding-top: 7px;
+  padding-bottom: 13px;
+  background-color: #ffd70050;
+}
+.chosen-anime{
+  background-color: #0000ff50;
+}
+.add-photo-link {
+  width: 80%;
+}
+
+.add-anime-photo {
+  width: 100%;
+  cursor: pointer;
+}
+
+.add-anime-name {
+  max-width: 80%;
+  overflow-wrap: break-word;
+  padding: 15px 0;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: inherit;
+}
+
+.add-anime-name:hover {
+  text-decoration: underline;
+  color: coral;
+}

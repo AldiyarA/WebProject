@@ -1,17 +1,30 @@
 .login{
   font-size: 30px;
   margin-bottom: 30px;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px 8px;
+  border: gray 1px solid;
 }
 .login-box{
-  margin: 10% 25%;
-  width: 50%;
+  margin: 10% 30%;
+  width: 40%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   color: black;
   border: bisque 1px solid;
-  background-color: #ffa50050;
+  background-color: #ffffffbb;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100px;
+  border-radius: 5px;
 }
 .login-bnt{
   /*background-color: #0000ff50;*/
+  border-radius: 5px;
+  padding: 3px 8px;
+  outline: none;
+  font-size: 30px;
+
 }

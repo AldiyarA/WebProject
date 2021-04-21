@@ -4,10 +4,10 @@
 
             <input type="text"  [disabled]="!managing"  [(ngModel)]="anime.english_name" class="name">
 
-            <div *ngIf= "anime.description" >
-                <p *ngIf="!managing" class="description">
-                    {{ anime.description }}
-                </p>
+            <div>
+              <div *ngIf="!managing">
+                <p *ngFor="let description of descriptions">{{description}}<br></p>
+              </div>
                 <textarea class="text-area" *ngIf="managing"
                     [(ngModel)]="anime.description"></textarea>
             </div>
@@ -51,7 +51,7 @@
         </div>
         <div class= "anime_detailRight">
 
-            <div *ngIf= "anime.english_name" >
+            <div>
                 <p *ngIf="!managing"  class="rightname">{{ anime.english_name }}</p>
                 <input type="text" *ngIf="managing" [(ngModel)]="anime.english_name"  class="rightname">
             </div>
@@ -69,39 +69,39 @@
             <p class="rightname"> Characteristics</p>
 
 
-            <div *ngIf= "anime.country" class="characteristics-flex">
+            <div class="characteristics-flex">
                 <p>Country</p>
                 <p *ngIf="!managing">{{ anime.country }}</p>
                 <input type="text" [(ngModel)]="anime.country" *ngIf="managing" class="input-characteristics">
             </div>
 
-            <div *ngIf= "anime.original_name" class="characteristics-flex-names">
+            <div class="characteristics-flex-names">
                 <p>Original name</p>
                 <p *ngIf="!managing">{{ anime.original_name }}</p>
                 <input type="text" [(ngModel)]="anime.original_name" *ngIf="managing" class="input-characteristics">
             </div>
 
-            <div *ngIf= "anime.transcription" class="characteristics-flex-names">
+            <div class="characteristics-flex-names">
                 <p>Transcription</p>
                 <p *ngIf="!managing">{{ anime.transcription }}</p>
                 <input type="text" [(ngModel)]="anime.transcription" *ngIf="managing" class="input-characteristics">
             </div>
-            <div *ngIf= "anime.english_name" class="characteristics-flex">
+            <div class="characteristics-flex">
                 <p>English name</p>
                 <p *ngIf="!managing">{{ anime.english_name }}</p>
                 <input type="text" [(ngModel)]="anime.english_name" *ngIf="managing" class="input-characteristics">
             </div>
-            <div *ngIf= "anime.year" class="characteristics-flex">
+            <div class="characteristics-flex">
                 <p>Year</p>
                 <p *ngIf="!managing">{{ anime.year }}</p>
                 <input type="text" [(ngModel)]="anime.year" *ngIf="managing" class="input-characteristics">
             </div>
-            <div *ngIf= "anime.company" class="characteristics-flex">
+            <div class="characteristics-flex">
                 <p>Company</p>
                 <p *ngIf="!managing">{{ anime.company }}</p>
                 <input type="text" [(ngModel)]="anime.company" *ngIf="managing" class="input-characteristics">
             </div>
-            <div *ngIf= "anime.author" class="characteristics-flex-names">
+            <div class="characteristics-flex-names">
                 <p>Author</p>
                 <p *ngIf="!managing">{{ anime.author }}</p>
                 <input type="text" [(ngModel)]="anime.author" *ngIf="managing" class="input-characteristics">

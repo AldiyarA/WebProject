@@ -14,6 +14,8 @@ export class CharacterDetailComponent implements OnInit {
   articles: Article[];
   character: Character = undefined;
   managing = false;
+  addAnime = false;
+  descriptions = [];
   constructor(private route: ActivatedRoute, private router: Router, private characterService: CharacterService) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class CharacterDetailComponent implements OnInit {
       const id = +param.get('id');
       this.characterService.getCharacter(id).subscribe(character => {
         this.character = character;
+        this.descriptions = character.description.split('\n');
         this.loadArticle();
         this.loadAnime();
       });
@@ -55,6 +58,25 @@ export class CharacterDetailComponent implements OnInit {
   save(): void{
     this.managing = false;
     this.characterService.updateCharacter(this.character).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+  addAnimeList(ids: number[]): void{
+    this.addAnime = false;
+    let loading = 0;
+    for (const id of ids){
+      loading += 1;
+      this.characterService.addAnime(this.character.id, id).subscribe(() => {
+        loading -= 1;
+        if (loading === 0){
+          this.ngOnInit();
+        }
+      });
+    }
+  }
+
+  deleteAnime(id: number): void{
+    this.characterService.deleteAnime(this.character.id, id).subscribe(() => {
       this.ngOnInit();
     });
   }

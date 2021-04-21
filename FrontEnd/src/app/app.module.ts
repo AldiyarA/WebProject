@@ -19,6 +19,7 @@ import {FormsModule} from '@angular/forms';
 import { AddCharactersComponent } from './add-characters/add-characters.component';
 import {AuthInterceptor} from './services/AuthInterceptor';
 import { AddGenreComponent } from './add-genre/add-genre.component';
+import { AddAnimeComponent } from './add-anime/add-anime.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
     GenreDetailComponent,
     ArticleComponent,
     AddCharactersComponent,
-    AddGenreComponent
+    AddGenreComponent,
+    AddAnimeComponent
   ],
   imports: [
     BrowserModule,

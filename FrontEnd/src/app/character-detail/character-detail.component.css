@@ -174,3 +174,28 @@
 .content-delete-button{
     background-color: red;
 }
+.character-anime{
+  position: relative;
+  padding-bottom: 50px;
+  display: flex;
+  width: 21%;
+  padding-top: 1%;
+  flex-flow: column nowrap;
+  align-items: center;
+  border:2px solid gold;
+  background-color:#ffd70050;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+.character-anime-avatar{
+  width: 100%;
+  cursor: pointer;
+}
+.genre-delete-button{
+  background-color: red;
+  border: 2px solid rgb(220,155,71);
+}
+.character-delete-btn{
+  position: absolute;
+  bottom: 20px;
+}

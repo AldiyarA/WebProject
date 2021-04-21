@@ -18,6 +18,7 @@ export class AnimeDetailComponent implements OnInit {
   managing = false;
   addCharacter = false;
   addGenre = false;
+  descriptions = [];
   constructor(private route: ActivatedRoute, private router: Router, private animeService: AnimeService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class AnimeDetailComponent implements OnInit {
       const id = +param.get('anime_id');
       this.animeService.getAnime(id).subscribe(anime => {
         this.anime = anime;
+        this.descriptions = anime.description.split('\n');
         this.loadArticle();
         this.loadGenre();
         this.loadCharacters();

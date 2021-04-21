@@ -1,0 +1,13 @@
+<div class="add-anime-main">
+  <h1>Add anime</h1>
+  <button (click)="submit()" class="add-anime-btn">Submit</button>
+</div>
+<div class="add-anime-list">
+  <div *ngFor="let anime of animeList" class="add-anime"
+       (click)="checkedAnime[anime.id]=!checkedAnime[anime.id]"
+       [ngClass]="{'chosen-anime': checkedAnime[anime.id]}">
+  <span class="add-photo-link">
+    <img [src]="anime.photo_url" class="add-anime-photo"></span>
+    <span class="add-anime-name">{{anime.english_name}}</span>
+  </div>
+</div>
