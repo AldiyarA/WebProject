@@ -72,6 +72,8 @@
   /*font-size: 16px;*/
 }
 .login-btn{
+  font-family: inherit;
+  font-size: 1em;
   position: absolute;
   right: 50px;
   top: 25px;
