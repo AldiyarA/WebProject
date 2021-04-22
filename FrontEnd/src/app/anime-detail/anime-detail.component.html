@@ -6,43 +6,43 @@
 
             <div>
               <div *ngIf="!managing">
-                <p *ngFor="let description of descriptions" class="content-box-1">{{description}}<br></p>
+                <p *ngFor="let description of descriptions">{{description}}<br></p>
               </div>
                 <textarea class="text-area" *ngIf="managing"
                     [(ngModel)]="anime.description"></textarea>
             </div>
 
-            <div class="contents content-box" *ngIf="!managing">
-                <div class="content-add-space ">
+            <div class="contents" *ngIf="!managing" >
+                <div class="content-add-space">
                     <h3>Contents</h3>
-                    <button *ngIf="logged" class="content-add-button" (click)="addArticle()">Add</button>
+                    <button class="content-add-button" (click)="addArticle()">Add</button>
                 </div>
                 <ul style="list-style-type:none;">
                     <li class="contestList" *ngFor ="let article of articles">
                         <a href="anime/{{anime.id}}#article-{{article.id}}">{{article.name}}</a>
-                        <button *ngIf="logged" class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
+                        <button class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
                     </li>
-                    <li class="contestList ">
+                    <li class="contestList">
                         <a href="anime/{{anime.id}}#characters">Characters</a>
                     </li>
                 </ul>
             </div>
 
-            <div *ngIf="!managing" class="content-box-1">
+            <div *ngIf="!managing">
                 <a href="anime/{{anime.id}}#characters"><button class="Characters">Characters</button></a>
                     <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
             </div>
 
-            <div *ngIf="!managing" class="content-box-1">
+            <div *ngIf="!managing">
               <div class="Genres">
                 Genres
-                <button *ngIf="logged" class="content-add-button right-btn" (click)="addGenre=true">Add</button>
+                <button class="content-add-button right-btn" (click)="addGenre=true">Add</button>
               </div>
                 <div class="genreList" *ngFor = "let genre of genres">
-                    <a class="genreName"   [routerLink]="['/', 'genres', genre.id]">{{genre.name}}</a>
+                    <a class="genreName"   [routerLink]="['/', 'genre', genre.id]">{{genre.name}}</a>
                     <div class="genre-buttons-space">
                         <a class="genreButt"   [routerLink]="['/', 'genres', genre.id]"><button>Genre Detail</button></a>
-                        <button *ngIf="logged" class="genre-delete-button" (click)="deleteGenre(genre.id)">Delete</button>
+                        <button class="genre-delete-button" (click)="deleteGenre(genre.id)">Delete</button>
                     </div>
                 </div>
               <app-add-genre *ngIf="addGenre" (addGenres)="addGenres($event)"></app-add-genre>
@@ -106,7 +106,7 @@
                 <p *ngIf="!managing">{{ anime.author }}</p>
                 <input type="text" [(ngModel)]="anime.author" *ngIf="managing" class="input-characteristics">
             </div>
-            <button class="manage" *ngIf="logged && !managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
             <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
         </div>
     </div>
@@ -122,9 +122,9 @@
           [routerLink]="['/', 'characters', character.id]">
         </a>
         <a class="anime-character-name"   [routerLink]="['/', 'characters', character.id]">{{character.english_name}}</a>
-      <button *ngIf="logged" (click)="deleteCharacter(character.id)" class="genre-delete-button character-delete-btn">DELETE</button>
+      <button (click)="deleteCharacter(character.id)" class="genre-delete-button character-delete-btn">DELETE</button>
     </div>
-  <div *ngIf="logged" class="anime-character" (click)="addCharacter=true">
+  <div class="anime-character" (click)="addCharacter=true">
     <img src="../../assets/images/no-image-available.png" class="anime-character-avatar">
     <span class="anime-character-name">Add character</span>
   </div>

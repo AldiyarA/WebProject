@@ -1,0 +1,72 @@
+.genre-anime {
+    display: flex;
+    width: 21%;
+    padding-top: 1%;
+    flex-flow: column nowrap;
+    align-items: center;
+    border:2px solid gold;
+    background-color:#ffd70050
+}
+.genre-avatar-link {
+    width: 80%;
+}
+.genre-anime-avatar {
+    width: 100%;
+    cursor: pointer;
+}
+.genre-anime-name {
+    max-width: 80%;
+    overflow-wrap: break-word;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: inherit;
+}
+.genre-anime-name:hover {
+    text-decoration: underline;
+    color: coral;
+}
+.anime-List{
+    padding-bottom: 10%;;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.genre-delete-button{
+    background-color: red;
+    border: 2px solid rgb(220,155,71);
+  }
+  .character-delete-btn{
+    position: absolute;
+    bottom: 20px;
+  }
+.name{
+    padding-top:2%;
+    padding-bottom:2%;
+    text-align: center;
+    background-color: rgb(120,170,245);
+    border:3px solid aqua;
+    border-radius: 3px;
+    width:99.5%;
+    font-size:160%;
+    font-weight: bold;
+    color:black;
+}
+.text-area{
+    resize: none;
+    border: none;
+    background-color: transparent;
+    width: 96%;
+    color:black;
+    height: 700px;
+    font-size: 16px;
+}
+.description{
+    padding:2%;
+}
+.manage{
+    margin-left:90%;
+}
