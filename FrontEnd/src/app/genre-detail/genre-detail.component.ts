@@ -11,8 +11,8 @@ import {GenreService} from '../services/genre.service';
   styleUrls: ['./genre-detail.component.css']
 })
 export class GenreDetailComponent implements OnInit {
-
-  anime: Anime[];
+  logged = false;
+  animeList: Anime[];
   genre: Genre = undefined;
   managing = false;
   addAnime = false;
@@ -20,6 +20,13 @@ export class GenreDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private genreService: GenreService) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+  loadData(): void{
+    const token = localStorage.getItem('token');
+    if (token){
+      this.logged = true;
+    }
     this.loadGenre();
   }
   loadGenre(): void{
@@ -33,13 +40,14 @@ export class GenreDetailComponent implements OnInit {
     });
   }
   loadAnime(): void{
-    this.genreService.getAnimeList(this.genre.id).subscribe(anime => {
-      this.anime = anime;
+    this.genreService.getAnimeList(this.genre.id).subscribe(animeList => {
+      this.animeList = animeList;
     });
   }
   addAnimeList(ids: number[]): void{
     this.addAnime = false;
     let loading = 0;
+    console.log(ids);
     for (const id of ids){
       loading += 1;
       this.genreService.addAnime(this.genre.id, id).subscribe(() => {
@@ -53,6 +61,12 @@ export class GenreDetailComponent implements OnInit {
   save(): void{
     this.managing = false;
     this.genreService.updateGenre(this.genre).subscribe(() => {
+      this.ngOnInit();
+    });
+  }
+
+  deleteAnime(id: number): void{
+    this.genreService.deleteAnime(this.genre.id, id).subscribe(() => {
       this.ngOnInit();
     });
   }

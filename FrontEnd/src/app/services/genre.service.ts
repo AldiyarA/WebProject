@@ -34,7 +34,7 @@ export class GenreService{
     return this.client.get<Anime[]>(`${this.BASE_URL}/${id}/anime`);
   }
   addAnime(id: number, animeID: number): Observable<any> {
-    return this.client.post(`${this.BASE_URL}/${id}/anime`, {anime: animeID});
+    return this.client.post(`${this.BASE_URL}/${id}/anime/`, {anime: animeID});
   }
   deleteAnime(id: number, animeID: number): Observable<any> {
     return this.client.delete(`${this.BASE_URL}/${id}/anime/${animeID}`);

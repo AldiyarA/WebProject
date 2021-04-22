@@ -5,7 +5,8 @@
     flex-flow: column nowrap;
     align-items: center;
     border:2px solid gold;
-    background-color:#ffd70050
+    background-color:#ffd70050;
+  position: relative;
 }
 .genre-avatar-link {
     width: 80%;

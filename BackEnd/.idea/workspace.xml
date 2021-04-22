@@ -23,10 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb22a74-e641-42eb-ac89-6e18594a7dd8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/main/main.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/main/main.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/genre-detail/genre-detail.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <workItem from="1618907509546" duration="5983000" />
       <workItem from="1618984545582" duration="3084000" />
       <workItem from="1619091522712" duration="730000" />
-      <workItem from="1619102805878" duration="2738000" />
+      <workItem from="1619102805878" duration="3344000" />
     </task>
     <servers />
   </component>

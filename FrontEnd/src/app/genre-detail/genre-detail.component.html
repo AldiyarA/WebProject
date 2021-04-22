@@ -12,7 +12,7 @@
             <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
 </div>
 <div id="anime-list" class="anime-List">
-    <div *ngFor="let anime of animes" class="genre-anime" >
+    <div *ngFor="let anime of animeList" class="genre-anime" >
         <a class="character-avatar-link">
             <img [src]="anime.photo_url"    *ngIf="anime.photo_url"  class="genre-anime-avatar"
                 [routerLink]="['/', 'anime', anime.id]">
@@ -20,9 +20,9 @@
                 [routerLink]="['/', 'anime', anime.id]">
             </a>
         <a class="character-anime-name"   [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
-      <button (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
+      <button *ngIf="logged" (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
     </div>
-  <div class="genre-anime" (click)="addAnime=true">
+  <div *ngIf="logged" class="genre-anime" (click)="addAnime=true">
     <img src="../../assets/images/no-image-available.png" class="genre-anime-avatar">
     <span class="genre-anime-name">Add anime</span>
   </div>
