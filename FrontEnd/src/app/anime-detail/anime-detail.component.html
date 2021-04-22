@@ -28,12 +28,12 @@
                 </ul>
             </div>
 
-            <div *ngIf="!managing">
+            <div *ngIf="!managing" class="left-smth">
                 <a href="anime/{{anime.id}}#characters"><button class="Characters">Characters</button></a>
                     <p class="buttontexts">A character is the protagonist of a play, movie, book, game, etc. Characters can be completely fictional or taken from real life. Characters can be humans, animals, supernatural, mythical, divine beings, or personified abstract entities.</p>
             </div>
 
-            <div *ngIf="!managing">
+            <div *ngIf="!managing" class="left-smth">
               <div class="Genres">
                 Genres
                 <button class="content-add-button right-btn" (click)="addGenre=true">Add</button>

@@ -1,1 +1,31 @@
-<p>genre-detail works!</p>
+<div *ngIf="genre">
+    <div class= "flex-container">
+        <input type="text"  [disabled]="!managing"  [(ngModel)]="genre.name" class="name">
+        <div>
+            <div *ngIf="!managing" class="description">
+                <p *ngFor="let description of descriptions">{{description}}<br></p>
+            </div>
+            <textarea class="text-area" *ngIf="managing"
+                [(ngModel)]="genre.description"></textarea>
+        </div>
+            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
+</div>
+<div id="anime-list" class="anime-List">
+    <div *ngFor="let anime of animes" class="genre-anime" >
+        <a class="character-avatar-link">
+            <img [src]="anime.photo_url"    *ngIf="anime.photo_url"  class="genre-anime-avatar"
+                [routerLink]="['/', 'anime', anime.id]">
+            <img src="../../assets/images/no-image-available.png"   *ngIf="!anime.photo_url"  class="genre-anime-avatar"
+                [routerLink]="['/', 'anime', anime.id]">
+            </a>
+        <a class="character-anime-name"   [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
+      <button (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
+    </div>
+  <div class="genre-anime" (click)="addAnime=true">
+    <img src="../../assets/images/no-image-available.png" class="genre-anime-avatar">
+    <span class="genre-anime-name">Add anime</span>
+  </div>
+</div>
+</div>
+<app-add-anime *ngIf="addAnime" (addAnime)="addAnimeList($event)"></app-add-anime>

@@ -66,6 +66,7 @@
     padding-left:2%;
     padding-right:15%;
     font-size: 110%;
+    width:81%;
 }
 .contestList{
     padding-top: 3%;
@@ -209,4 +210,7 @@ a:hover {
   position: absolute;
   right: 20px;
   top: 7px;
+}
+.left-smth{
+    width:98.5%;
 }
