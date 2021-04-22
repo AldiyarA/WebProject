@@ -19,9 +19,17 @@ export class AnimeDetailComponent implements OnInit {
   addCharacter = false;
   addGenre = false;
   descriptions = [];
+  logged = false;
   constructor(private route: ActivatedRoute, private router: Router, private animeService: AnimeService) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+  loadData(): void{
+    const token = localStorage.getItem('token');
+    if (token){
+      this.logged = true;
+    }
     this.loadAnime();
   }
   loadAnime(): void{

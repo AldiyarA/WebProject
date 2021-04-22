@@ -34,7 +34,7 @@
     text-align: center;
     background-color: rgb(120,170,245);
     font-weight: bold;
-    border: 2px solid coral;
+    border: 2px solid #ff7f50;
     width:100%;
     font-size:100%;
 }
@@ -67,6 +67,14 @@
     padding-right:15%;
     font-size: 110%;
     width:81%;
+  padding: 3% 15% 3% 2%;
+  font-size: 110%;
+}
+.content-box{
+  width: 80%;
+}
+.content-box-1{
+  width: 98%;
 }
 .contestList{
     padding-top: 3%;
@@ -88,7 +96,7 @@ a:hover {
     margin-top:2%;
     padding-top:2%;
     padding-bottom:2%;
-    background-color: bisque;
+    background-color: #ffe4c4;
     width:100%;
     font-weight: bold;
     font-size: 90%;
@@ -113,7 +121,7 @@ a:hover {
     display:flex;
 }
 .genre-delete-button{
-    background-color: red;
+    background-color: crimson;
     border: 2px solid rgb(220,155,71);
 }
 .genreName,.genreButt{
@@ -144,8 +152,8 @@ a:hover {
     padding-top: 1%;
     flex-flow: column nowrap;
     align-items: center;
-    border:2px solid gold;
-    background-color:#ffd70050;
+    border:2px solid #6495ed;
+    background-color:#6495ed80;
     margin-right: 30px;
     margin-top: 20px;
 }
@@ -172,11 +180,9 @@ a:hover {
 .characterList{
     padding-bottom: 10%;;
     padding-left: 30px;
-    margin: auto;
-    margin-top: 50px;
-    display: flex;
+  margin: 50px auto auto;
+  display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
 }
 .input-photo-url{
     width:100%;
@@ -200,7 +206,7 @@ a:hover {
     background-color: rgb(120,170,245);
 }
 .content-delete-button{
-    background-color: red;
+    background-color: crimson;
 }
 .character-delete-btn{
   position: absolute;

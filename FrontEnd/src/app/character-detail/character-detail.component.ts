@@ -17,9 +17,17 @@ export class CharacterDetailComponent implements OnInit {
   addAnime = false;
   descriptions = [];
   aliases = [];
+  logged = false;
   constructor(private route: ActivatedRoute, private router: Router, private characterService: CharacterService) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+  loadData(): void{
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.logged = true;
+    }
     this.loadCharacter();
   }
   loadCharacter(): void{

@@ -16,13 +16,13 @@
 .add-anime {
   display: flex;
   width: 21%;
-  margin: 2%;
+  margin: 2% 1% 2% 2%;
   flex-flow: column nowrap;
   align-items: center;
-  border: gold 1px solid;
+  border: 1px solid #6495ed;
   padding-top: 7px;
   padding-bottom: 13px;
-  background-color: #ffd70050;
+  background-color: #6495ed80;
 }
 .chosen-anime{
   background-color: #0000ff50;

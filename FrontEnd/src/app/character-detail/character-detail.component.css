@@ -57,8 +57,8 @@
     border-bottom : 2px solid blue;
 }
 .contents{
-    border-left:3px solid rgb(243,128,75);
-    background-color: rgb(242,212,204);
+    border-left:3px solid #F3804B;
+    background-color: #F2D4CC;
     border-radius: 3px;
     margin-top: 5%;
     padding-top:3%;
@@ -67,6 +67,9 @@
     padding-right:15%;
     font-size: 110%;
     width:81%;
+  padding: 3% 15% 3% 2%;
+  font-size: 110%;
+  width: 80%;
 }
 .contestList{
     padding-top: 3%;
@@ -151,12 +154,13 @@
     color: coral;
 }
 .anime-List{
-    padding-bottom: 10%;;
-    margin: auto;
-    margin-top: 50px;
-    display: flex;
+    padding-bottom: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 50px auto auto;
+  display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
 .content-add-space{
     display:flex;
@@ -173,7 +177,7 @@
     background-color: rgb(120,170,245);
 }
 .content-delete-button{
-    background-color: red;
+    background-color: crimson;
 }
 .character-anime{
   position: relative;
@@ -193,7 +197,7 @@
   cursor: pointer;
 }
 .genre-delete-button{
-  background-color: red;
+  background-color: crimson;
   border: 2px solid rgb(220,155,71);
 }
 .character-delete-btn{
