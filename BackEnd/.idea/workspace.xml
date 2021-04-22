@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cb22a74-e641-42eb-ac89-6e18594a7dd8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +69,7 @@
       <updated>1617015219278</updated>
       <workItem from="1618856519937" duration="2982000" />
       <workItem from="1618907509546" duration="5983000" />
-      <workItem from="1618984545582" duration="2140000" />
+      <workItem from="1618984545582" duration="3084000" />
     </task>
     <servers />
   </component>

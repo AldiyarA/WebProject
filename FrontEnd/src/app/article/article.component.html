@@ -1,9 +1,9 @@
 <div class="flex-container">
     <input type="text" id="article-{{article.id}}" [disabled]="!managing"  [(ngModel)]="article.name" class="articleName">
     <div class="buttons">
-        <button (click)="managing=true" *ngIf ="!managing" class="ChangeButt">Manage</button>
+        <button (click)="managing=true" *ngIf ="logged && !managing" class="ChangeButt">Manage</button>
         <button (click)="save()" *ngIf ="managing" class="ChangeButt">Submit</button>
-        <button class="DeleteButt" (click)="delete()"> Delete</button>
+        <button class="DeleteButt" (click)="delete()" *ngIf="logged"> Delete</button>
     </div>
 </div>
 <textarea class="text-area" [disabled]="!managing"

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   username = '';
   password = '';
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token){
-      this.router.navigate(['main']);
+      // this.router.navigate(['main']);
+      this.location.back();
     }
   }
 

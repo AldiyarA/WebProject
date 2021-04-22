@@ -11,10 +11,11 @@ export class ArticleComponent implements OnInit {
   @Output() update = new EventEmitter();
   @Output() onDelete = new EventEmitter();
   managing = false;
+  logged = false;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.article.content.length)
+    this.loadData();
   }
   checkLength(len1: number, len2: number): boolean{
     return this.article.content !== null && this.article.content.length >= len1 && this.article.content.length < len2;
@@ -25,5 +26,12 @@ export class ArticleComponent implements OnInit {
   }
   delete(): void{
     this.onDelete.emit();
+  }
+
+  private loadData(): void{
+    const token = localStorage.getItem('token');
+    if (token){
+      this.logged = true;
+    }
   }
 }

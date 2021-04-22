@@ -13,12 +13,12 @@
             <div class="contents" *ngIf="!managing">
                 <div class="content-add-space">
                     <h3>Contents</h3>
-                    <button class="content-add-button" (click)="addArticle()">Add</button>
+                    <button *ngIf="logged" class="content-add-button" (click)="addArticle()">Add</button>
                 </div>
                 <ul style="list-style-type:none;" >
                     <li class="contestList" *ngFor ="let article of articles">
                         <a href="characters/{{character.id}}#article-{{article.id}}">{{article.name}}</a>
-                        <button class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
+                        <button *ngIf="logged" class="content-delete-button" (click)="deleteArticle(article.id)">Delete</button>
                     </li>
                     <li class="contestList">
                         <a href="characters/{{character.id}}#anime-list">Anime List</a>
@@ -81,7 +81,7 @@
                 <p *ngIf="!managing">{{ character.age }}</p>
                 <input type="text" [(ngModel)]="character.age" *ngIf="managing" class="input-characteristics">
             </div>
-            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="logged && !managing" (click)="managing=true">MANAGE</button>
             <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
         </div>
     </div>
@@ -97,9 +97,9 @@
                 [routerLink]="['/', 'anime', anime.id]">
             </a>
         <a class="character-anime-name"   [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
-      <button (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
+      <button *ngIf="logged" (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
     </div>
-  <div class="character-anime" (click)="addAnime=true">
+  <div *ngIf="logged" class="character-anime" (click)="addAnime=true">
     <img src="../../assets/images/no-image-available.png" class="character-anime-avatar">
     <span class="character-anime-name">Add anime</span>
   </div>
