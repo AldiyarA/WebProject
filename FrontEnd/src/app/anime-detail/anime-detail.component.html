@@ -39,7 +39,7 @@
                 <button *ngIf="logged" class="content-add-button right-btn" (click)="addGenre=true">Add</button>
               </div>
                 <div class="genreList" *ngFor = "let genre of genres">
-                    <a class="genreName"   [routerLink]="['/', 'genre', genre.id]">{{genre.name}}</a>
+                    <a class="genreName"   [routerLink]="['/', 'genres', genre.id]">{{genre.name}}</a>
                     <div class="genre-buttons-space">
                         <a class="genreButt"   [routerLink]="['/', 'genres', genre.id]"><button>Genre Detail</button></a>
                         <button *ngIf="logged" class="genre-delete-button" (click)="deleteGenre(genre.id)">Delete</button>

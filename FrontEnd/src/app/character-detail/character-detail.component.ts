@@ -22,6 +22,7 @@ export class CharacterDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+    window.scrollTo(0, 0);
   }
   loadData(): void{
     const token = localStorage.getItem('token');
