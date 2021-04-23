@@ -14,7 +14,6 @@ const routes: Routes = [
   {path : '', redirectTo: 'main', pathMatch: 'full'},
   {path : 'main', component: MainComponent},
   {path: 'login', component: LoginComponent},
-  // {path: 'register', component: RegisterComponent},
   {path: 'anime', redirectTo: 'anime/filter/', pathMatch: 'full'},
   {path : 'anime/filter/:ids', component: AnimeListComponent},
   {path : 'anime/filter', redirectTo: 'anime/filter/', pathMatch: 'full'},

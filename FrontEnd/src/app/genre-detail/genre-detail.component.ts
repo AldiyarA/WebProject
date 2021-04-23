@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Anime} from '../models/anime';
-import {Article} from '../models/article';
 import {Genre} from '../models/genre';
-import {Character} from '../models/character';
 import {GenreService} from '../services/genre.service';
 @Component({
   selector: 'app-genre-detail',

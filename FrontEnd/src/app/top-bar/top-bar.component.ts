@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AnimeService} from '../services/anime.service';
-import {Anime} from '../models/anime';
 import {CharacterService} from '../services/character.service';
 import {GenreService} from '../services/genre.service';
 

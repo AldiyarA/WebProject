@@ -8,7 +8,7 @@
             <textarea class="text-area" *ngIf="managing"
                 [(ngModel)]="genre.description"></textarea>
         </div>
-            <button class="manage" *ngIf="!managing" (click)="managing=true">MANAGE</button>
+            <button class="manage" *ngIf="logged && !managing" (click)="managing=true">MANAGE</button>
             <button class="manage" *ngIf="managing" (click)=save()>SUBMIT</button>
 </div>
 <div id="anime-list" class="anime-List">
