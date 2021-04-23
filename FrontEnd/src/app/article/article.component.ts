@@ -9,7 +9,7 @@ import {Article} from '../models/article';
 export class ArticleComponent implements OnInit {
   @Input() article: Article = undefined;
   @Output() update = new EventEmitter();
-  @Output() onDelete = new EventEmitter();
+  @Output() Delete = new EventEmitter();
   managing = false;
   logged = false;
   constructor() { }
@@ -25,7 +25,7 @@ export class ArticleComponent implements OnInit {
     this.update.emit(this.article);
   }
   delete(): void{
-    this.onDelete.emit();
+    this.Delete.emit();
   }
 
   private loadData(): void{

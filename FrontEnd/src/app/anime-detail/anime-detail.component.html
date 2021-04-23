@@ -111,7 +111,7 @@
         </div>
     </div>
   <div *ngFor="let article of articles">
-    <app-article [article]="article" (update)="updateArticle($event)" (onDelete)="deleteArticle(article.id)"></app-article>
+    <app-article [article]="article" (update)="updateArticle($event)" (Delete)="deleteArticle(article.id)"></app-article>
 </div>
 <div id="characters" class="characterList">
     <div *ngFor="let character of characters" class="anime-character" >

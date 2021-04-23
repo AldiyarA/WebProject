@@ -32,7 +32,6 @@ export class AddAnimeComponent implements OnInit {
         ids.push(anime.id);
       }
     }
-    console.log(ids);
     this.addAnime.emit(ids);
   }
 }

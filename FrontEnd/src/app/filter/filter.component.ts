@@ -12,8 +12,8 @@ export class FilterComponent implements OnInit {
   genres: Genre[];
   checkedGenres: object;
   constructor(
-    private router: Router, 
-    private route: ActivatedRoute, 
+    private router: Router,
+    private route: ActivatedRoute,
     private genreService: GenreService
   ) {
     this.checkedGenres = {};

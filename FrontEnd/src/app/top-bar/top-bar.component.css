@@ -1,6 +1,5 @@
 .top{
   position: relative;
-  /*background-color: #FF0000bb;*/
   background-color: #FCA31190;
   height: 100px;
   display: flex;
@@ -32,7 +31,6 @@
 }
 .class-2:hover{
   transition: all 0.5s;
-  /*background-color: #d3d3d3ee;*/
   background-color: #FCA311;
 }
 .class-2:hover > .class-3{
@@ -56,7 +54,6 @@
 }
 .class-4{
   padding: 0 20px;
-  /*background-color: #ffffffee;*/
   transition: all 0.5s;
   font-size: 15px;
   height: 70px;
@@ -70,7 +67,6 @@
 .class-4:hover{
   background-color: #E5E5E5ee;
   transition: all 0.5s;
-  /*font-size: 16px;*/
 }
 .login-btn{
   font-family: inherit;
