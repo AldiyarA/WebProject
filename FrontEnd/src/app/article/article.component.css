@@ -1,10 +1,12 @@
 .text-area{
+  height: 100px;
   resize: none;
   border: none;
   background-color: transparent;
+}
+.content{
   width: 96%;
   color:black;
-  height: 100px;
   font-size: 16px;
 }
 .height-1{
@@ -27,9 +29,11 @@
   background-color: transparent;
   outline:none;
   border:none;
+  width: 100%;
 }
-.articleName,.text-area{
-  margin:20px;
+.articleName,.content{
+  padding: 0 10px;
+  margin: 10px;
 }
 .flex-container{
   display:flex;

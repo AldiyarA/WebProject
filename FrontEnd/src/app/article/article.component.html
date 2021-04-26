@@ -6,6 +6,9 @@
         <button class="DeleteButt" (click)="delete()" *ngIf="logged"> Delete</button>
     </div>
 </div>
-<textarea class="text-area" [disabled]="!managing"
+<div *ngIf="!managing">
+<p *ngFor="let content of contents" class="content">{{content}}</p>
+</div>
+<textarea class="text-area content" *ngIf="managing"
     [ngClass]="{'height-1': checkLength(100, 1000), 'height-2': checkLength(1000, 2000),'height-3': checkLength(2000, 5000),'height-4': checkLength(5000, 10000)}"
     [(ngModel)]="article.content"></textarea>

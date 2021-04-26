@@ -5,6 +5,7 @@ import {Article} from '../models/article';
 import {Genre} from '../models/genre';
 import {Character} from '../models/character';
 import {AnimeService} from '../services/anime.service';
+import {AnimeArticleService} from '../services/article.service';
 @Component({
   selector: 'app-anime-detail',
   templateUrl: './anime-detail.component.html',
@@ -20,11 +21,14 @@ export class AnimeDetailComponent implements OnInit {
   addGenre = false;
   descriptions = [];
   logged = false;
-  constructor(private route: ActivatedRoute, private router: Router, private animeService: AnimeService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private animeService: AnimeService,
+              private articleService: AnimeArticleService) { }
 
   ngOnInit(): void {
     this.loadData();
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
   loadData(): void{
     const token = localStorage.getItem('token');
@@ -38,7 +42,9 @@ export class AnimeDetailComponent implements OnInit {
       const id = +param.get('anime_id');
       this.animeService.getAnime(id).subscribe(anime => {
         this.anime = anime;
-        this.descriptions = anime.description.split('\n');
+        if (anime.description) {
+          this.descriptions = anime.description.split('\n');
+        }
         this.loadArticle();
         this.loadGenre();
         this.loadCharacters();
@@ -48,12 +54,13 @@ export class AnimeDetailComponent implements OnInit {
   save(): void{
     this.managing = false;
     this.animeService.updateAnime(this.anime).subscribe(() => {
-      this.ngOnInit();
+      this.loadData();
     });
   }
   loadArticle(): void{
-    this.animeService.getArticles(this.anime.id).subscribe(articles => {
+    this.articleService.getArticles(this.anime.id).subscribe(articles => {
       this.articles = articles;
+      console.log(articles.length);
     });
   }
   loadGenre(): void{
@@ -73,7 +80,7 @@ export class AnimeDetailComponent implements OnInit {
       this.animeService.addCharacter(this.anime.id, id).subscribe(() => {
         loading -= 1;
         if (loading === 0){
-          this.ngOnInit();
+          this.loadData();
         }
       });
     }
@@ -82,27 +89,27 @@ export class AnimeDetailComponent implements OnInit {
   deleteCharacter(id: number): void{
     console.log(id);
     this.animeService.deleteCharacter(this.anime.id, id).subscribe(() => {
-      this.ngOnInit();
+      this.loadData();
     });
   }
   addArticle(): void{
-    this.animeService.addArticle(this.anime.id).subscribe(() => {
-      this.ngOnInit();
+    this.articleService.addArticle(this.anime.id).subscribe(() => {
+      this.loadData();
     });
   }
   updateArticle(article: Article): void{
-    this.animeService.updateArticle(this.anime.id, article).subscribe(() => {
-      this.ngOnInit();
+    this.articleService.updateArticle(this.anime.id, article).subscribe(() => {
+      this.loadData();
     });
   }
   deleteArticle(id: number): void{
-    this.animeService.deleteArticle(this.anime.id, id).subscribe(() => {
-      this.ngOnInit();
+    this.articleService.deleteArticle(this.anime.id, id).subscribe(() => {
+      this.loadData();
     });
   }
   deleteGenre(id: number): void{
     this.animeService.deleteGenre(this.anime.id, id).subscribe(() => {
-      this.ngOnInit();
+      this.loadData();
     });
   }
 
@@ -114,7 +121,7 @@ export class AnimeDetailComponent implements OnInit {
       this.animeService.addGenre(this.anime.id, id).subscribe(() => {
         loading -= 1;
         if (loading === 0){
-          this.ngOnInit();
+          this.loadData();
         }
       });
     }

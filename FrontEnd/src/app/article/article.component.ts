@@ -8,6 +8,7 @@ import {Article} from '../models/article';
 })
 export class ArticleComponent implements OnInit {
   @Input() article: Article = undefined;
+  contents = [];
   @Output() update = new EventEmitter();
   @Output() Delete = new EventEmitter();
   managing = false;
@@ -32,6 +33,9 @@ export class ArticleComponent implements OnInit {
     const token = localStorage.getItem('token');
     if (token){
       this.logged = true;
+    }
+    if (this.article.content){
+      this.contents = this.article.content.split('\n');
     }
   }
 }

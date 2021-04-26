@@ -72,10 +72,15 @@
   width: 80%;
 }
 .contestList{
-    padding-top: 3%;
-    padding-left:20%;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 3%;
+  padding-left:10%;
+  display: flex;
+  width: 570px;
+  justify-content: space-between;
+}
+.contestList a{
+  max-width: 450px;
+  overflow: hidden;
 }
 .description{
     font-size: 120%;
@@ -203,4 +208,7 @@
 .character-delete-btn{
   position: absolute;
   bottom: 20px;
+}
+.description-box{
+  margin: 10px;
 }

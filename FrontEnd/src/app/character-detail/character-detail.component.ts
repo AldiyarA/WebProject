@@ -4,6 +4,7 @@ import {Anime} from '../models/anime';
 import {Article} from '../models/article';
 import {Character} from '../models/character';
 import {CharacterService} from '../services/character.service';
+import {CharacterArticleService} from '../services/article.service';
 @Component({
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
@@ -18,7 +19,10 @@ export class CharacterDetailComponent implements OnInit {
   descriptions = [];
   aliases = [];
   logged = false;
-  constructor(private route: ActivatedRoute, private router: Router, private characterService: CharacterService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private characterService: CharacterService,
+              private articleService: CharacterArticleService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -49,7 +53,7 @@ export class CharacterDetailComponent implements OnInit {
     });
   }
   loadArticle(): void{
-    this.characterService.getArticles(this.character.id).subscribe(articles => {
+    this.articleService.getArticles(this.character.id).subscribe(articles => {
       this.articles = articles;
     });
   }
@@ -59,22 +63,24 @@ export class CharacterDetailComponent implements OnInit {
     });
   }
   updateArticle(article: Article): void{
-    this.characterService.updateArticle(this.character.id, article);
+    this.articleService.updateArticle(this.character.id, article).subscribe(() => {
+      this.loadData();
+    });
   }
   deleteArticle(id: number): void{
-    this.characterService.deleteArticle(this.character.id, id).subscribe(() => {
-      this.ngOnInit();
+    this.articleService.deleteArticle(this.character.id, id).subscribe(() => {
+      this.loadData();
     });
   }
   addArticle(): void{
-    this.characterService.addArticle(this.character.id).subscribe(() => {
-      this.ngOnInit();
+    this.articleService.addArticle(this.character.id).subscribe(() => {
+      this.loadData();
     });
   }
   save(): void{
     this.managing = false;
     this.characterService.updateCharacter(this.character).subscribe(() => {
-      this.ngOnInit();
+      this.loadData();
     });
   }
   addAnimeList(ids: number[]): void{
@@ -85,7 +91,7 @@ export class CharacterDetailComponent implements OnInit {
       this.characterService.addAnime(this.character.id, id).subscribe(() => {
         loading -= 1;
         if (loading === 0){
-          this.ngOnInit();
+          this.loadData();
         }
       });
     }
@@ -93,7 +99,7 @@ export class CharacterDetailComponent implements OnInit {
 
   deleteAnime(id: number): void{
     this.characterService.deleteAnime(this.character.id, id).subscribe(() => {
-      this.ngOnInit();
+      this.loadData();
     });
   }
 }

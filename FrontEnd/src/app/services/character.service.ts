@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Anime} from '../models/anime';
 import {Character} from '../models/character';
-import {Article} from '../models/article';
 @Injectable({
   providedIn: 'root'
 })
@@ -45,22 +44,5 @@ export class CharacterService {
   }
   deleteAnime(id: number, animeID: number): Observable<any> {
     return this.client.delete(`${this.BASE_URL}/${id}/anime/${animeID}`);
-  }
-  getArticles(id: number): Observable<Article[]>{
-    return this.client.get<Article[]>(`${this.BASE_URL}/${id}/articles`);
-  }
-  addArticle(id: number): Observable<Article>{
-    const article: Article = {
-      id: 0,
-      name: 'New article',
-      content: 'Type here'
-    };
-    return this.client.post<Article>(`${this.BASE_URL}/${id}/articles`, article);
-  }
-  updateArticle(id: number, article: Article): Observable<Article>{
-    return this.client.put<Article>(`${this.BASE_URL}/${id}/articles`, article);
-  }
-  deleteArticle(id: number, articleID: number): Observable<any>{
-    return this.client.delete(`${this.BASE_URL}/${id}/articles/${articleID}`);
   }
 }

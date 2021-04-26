@@ -16,8 +16,12 @@
     margin: 0 10px;
     font-size: 1.7em;
     font-weight: 500;
+  max-width: max-content;
+  cursor: pointer;
 }
-
+.checkbox{
+  cursor: pointer;
+}
 .filter-btn {
     width: fit-content;
     overflow-wrap: break-word;

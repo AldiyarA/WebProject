@@ -3,7 +3,7 @@
         <div class= "character_detailLeft">
             <input type="text"  [disabled]="!managing"  [(ngModel)]="character.english_name" class="name">
             <div>
-              <div *ngIf="!managing">
+              <div *ngIf="!managing" class="description-box">
                 <p *ngFor="let description of descriptions">{{description}}<br></p>
               </div>
                 <textarea class="text-area" *ngIf="managing"
@@ -76,7 +76,7 @@
                 <p *ngIf="!managing">{{ character.gender }}</p>
                 <input type="text" [(ngModel)]="character.gender" *ngIf="managing" class="input-characteristics">
             </div>
-            <div class="characteristics-flex">
+            <div class="characteristics-flex-names">
                 <p>Age</p>
                 <p *ngIf="!managing">{{ character.age }}</p>
                 <input type="text" [(ngModel)]="character.age" *ngIf="managing" class="input-characteristics">
@@ -99,10 +99,12 @@
         <a class="character-anime-name"   [routerLink]="['/', 'anime', anime.id]">{{anime.english_name}}</a>
       <button *ngIf="logged" (click)="deleteAnime(anime.id)" class="genre-delete-button character-delete-btn">DELETE</button>
     </div>
-  <div *ngIf="logged" class="character-anime" (click)="addAnime=true">
+  <a *ngIf="logged" class="character-anime" (click)="addAnime=true" href="characters/{{character.id}}#add-anime">
     <img src="../../assets/images/no-image-available.png" class="character-anime-avatar">
     <span class="character-anime-name">Add anime</span>
-  </div>
+  </a>
 </div>
 </div>
-<app-add-anime *ngIf="addAnime" (addAnime)="addAnimeList($event)"></app-add-anime>
+<div id="add-anime">
+  <app-add-anime *ngIf="addAnime" (addAnime)="addAnimeList($event)"></app-add-anime>
+</div>

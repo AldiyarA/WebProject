@@ -1,6 +1,6 @@
 <div *ngFor="let genre of genres" class="genre">
-    <input type="checkbox" [(ngModel)]="checkedGenres[genre.id]">
-    <span class="genre-name">{{genre.name}}</span>
+    <input type="checkbox" class="checkbox" [(ngModel)]="checkedGenres[genre.id]">
+    <span class="genre-name" (click)="checkedGenres[genre.id]=!checkedGenres[genre.id]">{{genre.name}}</span>
 </div>
 
 <button class="filter-btn filter" (click)="submit()">Filter</button>
