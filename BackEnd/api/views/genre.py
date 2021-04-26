@@ -2,15 +2,12 @@ import json
 
 from rest_framework.decorators import api_view
 
-from django.http.request import HttpRequest
-from django.http.response import HttpResponse, JsonResponse
-
-from rest_framework.request import Request
 from rest_framework.response import Response
 
-from api.models import Genre, GenreAnime, Anime
+from api.models import Genre, Anime
 from api.serializers import GenreSerializer, AnimeSerializer, GenreAnimeSerializer
-from .views import postGenreAnime, deleteGenreAnime
+from .views import postGenreAnime, deleteGenreAnime, get_anime_genre
+
 
 @api_view(['GET', 'POST'])
 def genre_list(request):
@@ -48,17 +45,17 @@ def genre_detail(request, genre_id):
         return Response({'message': 'deleted'}, status=204)
 
 
-@api_view(['GET', 'POST', 'DELETE'])
-def genre_animes(request, genre_id, anime_id=None):
+@api_view(['GET', 'POST'])
+def genre_anime_list(request, genre_id):
     try:
         genre = Genre.objects.get(id=genre_id)
     except Genre.DoesNotExist as e:
         return Response({'message': str(e)}, status=400)
 
     if request.method == 'GET':
-        animes_id = genre.animes.all()
-        animes = [anime.anime for anime in animes_id]
-        serializer = AnimeSerializer(animes, many=True)
+        animeList_id = genre.animes.all()
+        animeList = [anime.anime for anime in animeList_id]
+        serializer = AnimeSerializer(animeList, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         data = json.loads(request.body)
@@ -68,9 +65,20 @@ def genre_animes(request, genre_id, anime_id=None):
         except Genre.DoesNotExist as e:
             return Response({'message': str(e)}, status=400)
         return postGenreAnime(genre, anime)
+
+
+@api_view(['GET', 'DELETE'])
+def genre_anime_detail(request, genre_id, anime_id):
+    try:
+        genre = Genre.objects.get(id=genre_id)
+    except Genre.DoesNotExist as e:
+        return Response({'message': str(e)}, status=400)
+    try:
+        anime = Anime.objects.get(id=anime_id)
+    except Anime.DoesNotExist as e:
+        return Response({'message': str(e)}, status=400)
+    if request.method == 'GET':
+        serializer = GenreAnimeSerializer(get_anime_genre(anime, genre))
+        Response(serializer.data)
     elif request.method == "DELETE":
-        try:
-            anime = Anime.objects.get(id=anime_id)
-        except Anime.DoesNotExist as e:
-            return Response({'message': str(e)}, status=400)
         return deleteGenreAnime(genre, anime)

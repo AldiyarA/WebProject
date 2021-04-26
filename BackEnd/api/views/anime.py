@@ -5,15 +5,15 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-from .views import postAnimeCharacter, deleteAnimeCharacter, postGenreAnime, deleteGenreAnime
-from api.models import Anime, AnimeCharacter, Character, Genre, GenreAnime, Article
-from api.serializers import AnimeSerializer, CharacterSerializer, GenreSerializer, GenreAnimeSerializer,\
-    ArticleSerializer
+from api.models import Anime, GenreAnime, Genre, AnimeArticle
+from api.serializers import AnimeSerializer, CharacterSerializer, GenreSerializer, ArticleSerializer
+from .views import postAnimeCharacter, deleteAnimeCharacter, postGenreAnime, deleteGenreAnime,\
+    get_anime, get_character, get_genre, get_anime_genre, get_anime_character
 
 
 class AnimeListAPIView(APIView):
     def get(self, request):
-        animeList = Anime.objects.order_by('english_name')
+        animeList = Anime.objects.order_by('id')
         serializer = AnimeSerializer(animeList, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -55,19 +55,13 @@ def animeFilterList(request, genres):
 
 
 class AnimeDetailAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return Anime.objects.get(id=pk)
-        except Anime.DoesNotExist as e:
-            raise Http404
-
     def get(self, request, pk=None):
-        anime = self.get_object(pk)
+        anime = get_anime(pk)
         serializer = AnimeSerializer(anime)
         return Response(serializer.data)
 
     def put(self, request, pk=None):
-        anime = self.get_object(pk)
+        anime = get_anime(pk)
         serializer = AnimeSerializer(instance=anime, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -75,113 +69,102 @@ class AnimeDetailAPIView(APIView):
         return Response(serializer.errors)
 
     def delete(self, request, pk=None):
-        anime = self.get_object(pk)
+        anime = get_anime(pk)
         anime.delete()
         return Response({'message': 'deleted'}, status=204)
 
 
 class AnimeCharacterListAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return Anime.objects.get(id=pk)
-        except Anime.DoesNotExist as e:
-            raise Http404
-
-    def get_character(self, id):
-        try:
-            return Character.objects.get(id=id)
-        except Character.DoesNotExist as e:
-            raise Http404
-
-    def get(self, request, pk=None, character_id=None):
-        anime = self.get_object(pk)
+    def get(self, request, pk=None):
+        anime = get_anime(pk)
         characters_id = anime.characters.all()
         characters = [character.character for character in characters_id]
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data)
 
-    def post(self, request, pk=None, character_id=None):
-        anime = self.get_object(pk)
+    def post(self, request, pk=None):
+        anime = get_anime(pk)
         character_id = json.loads(request.body)['character']
-        character = self.get_character(character_id)
+        character = get_character(character_id)
         return postAnimeCharacter(anime, character)
 
+
+class AnimeCharacterDetailAPIView(APIView):
+    def get(self, request, pk=None, character_id=None):
+        anime = get_anime(pk)
+        character = get_character(character_id)
+        animeCharacter = get_anime_character(anime, character)
+        serializer = CharacterSerializer(character)
+        return Response(serializer.data)
+
     def delete(self, request, pk=None, character_id=None):
-        anime = self.get_object(pk)
-        character = self.get_character(character_id)
+        anime = get_anime(pk)
+        character = get_character(character_id)
         return deleteAnimeCharacter(anime, character)
 
 
 class AnimeGenreListAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return Anime.objects.get(id=pk)
-        except Anime.DoesNotExist as e:
-            raise Http404
-
-    def get_genre(self, id):
-        try:
-            return Genre.objects.get(id=id)
-        except Genre.DoesNotExist as e:
-            raise Http404
-
-    def get(self, request, pk=None, genre_id=None):
-        anime = self.get_object(pk)
+    def get(self, request, pk=None):
+        anime = get_anime(pk)
         genres_id = anime.genres.all()
         genres = [genre.genre for genre in genres_id]
         serializer = GenreSerializer(genres, many=True)
         return Response(serializer.data)
 
-    def post(self, request, pk=None, genre_id=None):
-        anime = self.get_object(pk)
+    def post(self, request, pk=None):
+        anime = get_anime(pk)
         genre_id = json.loads(request.body)['genre']
-        genre = self.get_genre(genre_id)
+        genre = get_genre(genre_id)
         return postGenreAnime(genre, anime)
 
+
+class AnimeGenreDetailAPIView(APIView):
+    def get(self, request, pk=None, genre_id=None):
+        anime = get_anime(pk)
+        genre = get_genre(genre_id)
+        animeGenre = get_anime_genre(anime, genre)
+        serializer = GenreSerializer(genre)
+        return Response(serializer.data)
+
     def delete(self, request, pk=None, genre_id=None):
-        anime = self.get_object(pk)
-        genre = self.get_genre(genre_id)
+        anime = get_anime(pk)
+        genre = get_genre(genre_id)
         return deleteGenreAnime(genre, anime)
 
 
 class AnimeArticleListAPIView(APIView):
-    def get_object(self, pk):
-        try:
-            return Anime.objects.get(id=pk)
-        except Anime.DoesNotExist as e:
-            raise Http404
-
-    def get_article(self, id, anime):
-        try:
-            return Article.objects.get(id=id, anime=anime)
-        except Article.DoesNotExist as e:
-            raise Http404
-
-    def get(self, request, pk=None, article_id=None):
-        anime = self.get_object(pk)
+    def get(self, request, pk=None):
+        anime = get_anime(pk)
         articles_id = anime.articles.all()
         articles = [article for article in articles_id]
         serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
 
-    def post(self, request, pk=None, article_id=None):
-        anime = self.get_object(pk)
+    def post(self, request, pk=None):
+        anime = get_anime(pk)
         data = json.loads(request.body)
-        article = Article.objects.create(anime=anime, name=data['name'], content=data['content'])
+        article = AnimeArticle.objects.create(anime=anime, name=data['name'], content=data['content'])
         serializer = ArticleSerializer(article)
         return Response(serializer.data)
 
+
+class AnimeArticleDetailAPIView(APIView):
+    def get_article(self, pk, anime):
+        try:
+            return AnimeArticle.objects.get(id=pk, anime=anime)
+        except AnimeArticle.DoesNotExist as e:
+            raise Http404
+
     def put(self, request, pk=None, article_id=None):
-        anime = self.get_object(pk)
-        data = json.loads(request.body)
-        serializer = ArticleSerializer(instance=self.get_article(data['id'], anime), data=request.data)
+        anime = get_anime(pk)
+        serializer = ArticleSerializer(instance=self.get_article(article_id, anime), data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
 
     def delete(self, request, pk=None, article_id=None):
-        anime = self.get_object(pk)
+        anime = get_anime(pk)
         article = self.get_article(article_id, anime)
         article.delete()
         return Response({'message': 'deleted'}, status=204)

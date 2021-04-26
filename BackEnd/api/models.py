@@ -55,15 +55,21 @@ class GenreAnime(models.Model):
         return f'ID-{self.pk} : {self.anime.english_name} - {self.genre.name}'
 
 
-class Article(models.Model):
-    anime = models.ForeignKey(Anime, on_delete=models.CASCADE, null=True, related_name='articles', blank=True)
-    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True, related_name='articles', blank=True)
-    name = models.CharField(max_length=100, default='New article', blank=True, null=True)
-    content = models.TextField(max_length=10000, default='Type here content', blank=True, null=True)
+class AnimeArticle(models.Model):
+    anime = models.ForeignKey(Anime, on_delete=models.CASCADE, related_name='articles')
+    name = models.CharField(max_length=100, default='', blank=True, null=True)
+    content = models.TextField(max_length=10000, default='', blank=True, null=True)
 
     def __str__(self):
-        if self.anime:
-            topic = self.anime.english_name
-        else:
-            topic = self.character.english_name
+        topic = self.anime.english_name
+        return f'ID-{self.pk} : {topic} - {self.name} : Content length - {len(self.content)}'
+
+
+class CharacterArticle(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='articles')
+    name = models.CharField(max_length=100, default='', blank=True, null=True)
+    content = models.TextField(max_length=10000, default='', blank=True, null=True)
+
+    def __str__(self):
+        topic = self.character.english_name
         return f'ID-{self.pk} : {topic} - {self.name} : Content length - {len(self.content)}'

@@ -1,12 +1,43 @@
-import json
-from django.shortcuts import Http404
-from rest_framework.decorators import api_view
+from django.http import Http404
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
 
 from api.models import Anime, AnimeCharacter, Character, Genre, GenreAnime
 from api.serializers import AnimeCharacterSerializer, GenreAnimeSerializer
+
+
+def get_anime(pk):
+    try:
+        return Anime.objects.get(id=pk)
+    except Anime.DoesNotExist as e:
+        raise Http404
+
+
+def get_genre(pk):
+    try:
+        return Genre.objects.get(id=pk)
+    except Genre.DoesNotExist as e:
+        raise Http404
+
+
+def get_anime_genre(anime, genre):
+    try:
+        return GenreAnime.objects.get(anime=anime, genre=genre)
+    except GenreAnime.DoesNotExist as e:
+        raise Http404
+
+
+def get_character(pk):
+    try:
+        return Character.objects.get(id=pk)
+    except Character.DoesNotExist as e:
+        raise Http404
+
+
+def get_anime_character(anime, character):
+    try:
+        return AnimeCharacter.objects.get(anime=anime, character=character)
+    except AnimeCharacter.DoesNotExist as e:
+        raise Http404
 
 
 def postAnimeCharacter(anime: Anime, character: Character):
