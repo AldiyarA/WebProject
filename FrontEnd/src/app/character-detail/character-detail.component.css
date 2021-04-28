@@ -37,6 +37,7 @@
     border: 2px solid coral;
     width:100%;
     font-size:100%;
+  box-sizing: border-box;
 }
 .manage{
     background-color:aqua;
@@ -210,5 +211,6 @@
   bottom: 20px;
 }
 .description-box{
-  margin: 10px;
+  margin: 10px 20px 10px 10px;
+  text-align: justify;
 }

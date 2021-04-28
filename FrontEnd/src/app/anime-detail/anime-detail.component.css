@@ -37,6 +37,7 @@
     border: 2px solid #ff7f50;
     width:100%;
     font-size:100%;
+  box-sizing: border-box;
 }
 .manage{
     background-color:aqua;
@@ -151,7 +152,8 @@ a:hover {
     font-size: 16px;
 }
 .description-box{
-  margin: 10px;
+  margin: 10px 20px 10px 10px;
+  text-align: justify;
 }
 .anime-character {
   position: relative;

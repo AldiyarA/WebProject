@@ -1,6 +1,11 @@
+.top-box{
+  display: flex;
+  justify-content: space-between;
+  background-color: #FCA31190;
+  padding: 0 30px;
+}
 .top{
   position: relative;
-  background-color: #FCA31190;
   height: 100px;
   display: flex;
 }
@@ -8,7 +13,7 @@
   width: 200px;
   height: 100px;
   text-align: center;
-  margin: 0 30px;
+  margin: 0 10px;
 }
 .topic{
   position: absolute;
@@ -71,9 +76,8 @@
 .login-btn{
   font-family: inherit;
   font-size: 1em;
-  position: absolute;
-  right: 50px;
-  top: 25px;
+  align-self:center;
   width: 100px;
   height: 50px;
+  justify-self: flex-end;
 }

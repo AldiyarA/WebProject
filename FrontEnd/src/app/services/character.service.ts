@@ -14,7 +14,7 @@ export class CharacterService {
     return this.client.get<Character[]>(`${this.BASE_URL}/`);
   }
   getCharacter(id: number): Observable<Character> {
-    return this.client.get<Character>(`${this.BASE_URL}/${id}`);
+    return this.client.get<Character>(`${this.BASE_URL}/${id}/`);
   }
   addCharacter(): Observable<Character> {
     const character: Character = {
@@ -31,18 +31,18 @@ export class CharacterService {
     return this.client.post<Character>(`${this.BASE_URL}/`, character);
   }
   updateCharacter(character: Character): Observable<Character> {
-    return this.client.put<Character>(`${this.BASE_URL}/${character.id}`, character);
+    return this.client.put<Character>(`${this.BASE_URL}/${character.id}/`, character);
   }
   deleteCharacter(id: number): Observable<any> {
-    return this.client.delete(`${this.BASE_URL}/${id}`);
+    return this.client.delete(`${this.BASE_URL}/${id}/`);
   }
   getAnimeList(id: number): Observable<Anime[]> {
-    return this.client.get<Anime[]>(`${this.BASE_URL}/${id}/anime`);
+    return this.client.get<Anime[]>(`${this.BASE_URL}/${id}/anime/`);
   }
   addAnime(id: number, animeID: number): Observable<any> {
-    return this.client.post(`${this.BASE_URL}/${id}/anime`, {anime: animeID});
+    return this.client.post(`${this.BASE_URL}/${id}/anime/`, {anime: animeID});
   }
   deleteAnime(id: number, animeID: number): Observable<any> {
-    return this.client.delete(`${this.BASE_URL}/${id}/anime/${animeID}`);
+    return this.client.delete(`${this.BASE_URL}/${id}/anime/${animeID}/`);
   }
 }

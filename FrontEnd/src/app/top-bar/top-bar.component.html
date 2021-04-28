@@ -1,4 +1,5 @@
-<div id="top" class="top">
+<div id="top" class="top-box">
+  <div class="top">
   <div class="icon-box" (click)="router.navigate([''])">
     <h1 class="topic class-btn-box">Animepedia</h1>
   </div>
@@ -32,6 +33,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
   <button class="login-btn" *ngIf="!logged" (click)="login()">Log In</button>
   <button class="login-btn" *ngIf="logged" (click)="logout()">Log Out</button>

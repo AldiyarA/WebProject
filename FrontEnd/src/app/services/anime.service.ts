@@ -20,11 +20,11 @@ export class AnimeService {
 
   getAnimeFilterList(genres: number[]): Observable<Anime[]>{
     const genresStr = genres.join('-');
-    return this.client.get<Anime[]>(`${this.BASE_URL}/filter/${genresStr}`);
+    return this.client.get<Anime[]>(`${this.BASE_URL}/filter/${genresStr}/`);
   }
 
   getAnime(id: number): Observable<Anime> {
-    return this.client.get<Anime>(`${this.BASE_URL}/${id}`);
+    return this.client.get<Anime>(`${this.BASE_URL}/${id}/`);
   }
 
   addAnime(): Observable<Anime> {
@@ -44,32 +44,32 @@ export class AnimeService {
   }
 
   updateAnime(anime: Anime): Observable<Anime> {
-    return this.client.put<Anime>(`${this.BASE_URL}/${anime.id}`, anime);
+    return this.client.put<Anime>(`${this.BASE_URL}/${anime.id}/`, anime);
   }
 
   deleteAnime(id: number): Observable<any> {
-    return this.client.delete(`${this.BASE_URL}/${id}`);
+    return this.client.delete(`${this.BASE_URL}/${id}/`);
   }
 
   getCharacters(id: number): Observable<Character[]> {
-    return this.client.get<Character[]>(`${this.BASE_URL}/${id}/characters`);
+    return this.client.get<Character[]>(`${this.BASE_URL}/${id}/characters/`);
   }
 
   addCharacter(id: number, characterID: number): Observable<{id: number, anime: Anime, character: Character}> {
     return this.client.post<{id: number, anime: Anime, character: Character}>
-    (`${this.BASE_URL}/${id}/characters`, {character: characterID});
+    (`${this.BASE_URL}/${id}/characters/`, {character: characterID});
   }
 
   deleteCharacter(id: number, characterID: number): Observable<any> {
-    return this.client.delete(`${this.BASE_URL}/${id}/characters/${characterID}`);
+    return this.client.delete(`${this.BASE_URL}/${id}/characters/${characterID}/`);
   }
   getGenres(id: number): Observable<Genre[]> {
-    return this.client.get<Genre[]>(`${this.BASE_URL}/${id}/genres`);
+    return this.client.get<Genre[]>(`${this.BASE_URL}/${id}/genres/`);
   }
   addGenre(id: number, genreID: number): Observable<any> {
-    return this.client.post(`${this.BASE_URL}/${id}/genres`, {genre: genreID});
+    return this.client.post(`${this.BASE_URL}/${id}/genres/`, {genre: genreID});
   }
   deleteGenre(id: number, genreID: number): Observable<any> {
-    return this.client.delete(`${this.BASE_URL}/${id}/genres/${genreID}`);
+    return this.client.delete(`${this.BASE_URL}/${id}/genres/${genreID}/`);
   }
 }

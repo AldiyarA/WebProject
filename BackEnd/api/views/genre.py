@@ -9,6 +9,7 @@ from api.serializers import GenreSerializer, AnimeSerializer, GenreAnimeSerializ
 from .views import postGenreAnime, deleteGenreAnime, get_anime_genre
 
 
+# FBV
 @api_view(['GET', 'POST'])
 def genre_list(request):
     if request.method == 'GET':
