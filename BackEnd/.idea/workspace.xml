@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8afd928d-b74b-452f-bc96-f7d64fe922f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views/anime.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/anime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/genre.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/genre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/anime-detail/anime-detail.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/anime-detail/anime-detail.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/article/article.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/article/article.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/character-detail/character-detail.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/character-detail/character-detail.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/app/services/anime.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/app/services/anime.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/character.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +91,8 @@
       <workItem from="1619470997730" duration="288000" />
       <workItem from="1619471286548" duration="3306000" />
       <workItem from="1619505232773" duration="627000" />
-      <workItem from="1619615405007" duration="5685000" />
+      <workItem from="1619615405007" duration="8616000" />
+      <workItem from="1619629700900" duration="5642000" />
     </task>
     <servers />
   </component>

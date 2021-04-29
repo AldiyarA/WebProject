@@ -1,31 +1,36 @@
 import json
 from django.shortcuts import Http404
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated, BasePermission, SAFE_METHODS
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
 from api.models import Anime, GenreAnime, Genre, AnimeArticle
 from api.serializers import AnimeSerializer, CharacterSerializer, GenreSerializer, ArticleSerializer
-from .views import postAnimeCharacter, deleteAnimeCharacter, postGenreAnime, deleteGenreAnime,\
+from .views import postAnimeCharacter, deleteAnimeCharacter, postGenreAnime, deleteGenreAnime, \
     get_anime, get_character, get_genre, get_anime_genre, get_anime_character
+
+
+class ReadOnly(BasePermission):
+    def has_permission(self, request, view):
+        return request.method in SAFE_METHODS
 
 
 class AnimeListAPIView(APIView):
     def get(self, request):
-        animeList = Anime.objects.order_by('id')
+        animeList = Anime.manager.all()
         serializer = AnimeSerializer(animeList, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        if request.user.is_authenticated:
-            serializer = AnimeSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        return Response({'message': 'NETWORK AUTHENTICATION REQUIRE'},
-                        status=status.HTTP_511_NETWORK_AUTHENTICATION_REQUIRED)
+        serializer = AnimeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 def filterAnime(anime, genres):
@@ -40,7 +45,7 @@ def filterAnime(anime, genres):
 @api_view(['GET'])
 def animeFilterList(request, genres):
     if request.method == 'GET':
-        animeList = Anime.objects.order_by('english_name')
+        animeList = Anime.manager
         genres_id_str = genres
         genres_id = [int(genre_id) for genre_id in genres_id_str.split('-')]
         genres = []
@@ -76,6 +81,8 @@ class AnimeDetailAPIView(APIView):
         anime.delete()
         return Response({'message': 'deleted'}, status=204)
 
+    permission_classes = [IsAuthenticated | ReadOnly]
+
 
 class AnimeCharacterListAPIView(APIView):
     def get(self, request, pk=None):
@@ -90,6 +97,7 @@ class AnimeCharacterListAPIView(APIView):
         character_id = json.loads(request.body)['character']
         character = get_character(character_id)
         return postAnimeCharacter(anime, character)
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 class AnimeCharacterDetailAPIView(APIView):
@@ -104,6 +112,7 @@ class AnimeCharacterDetailAPIView(APIView):
         anime = get_anime(pk)
         character = get_character(character_id)
         return deleteAnimeCharacter(anime, character)
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 class AnimeGenreListAPIView(APIView):
@@ -119,6 +128,7 @@ class AnimeGenreListAPIView(APIView):
         genre_id = json.loads(request.body)['genre']
         genre = get_genre(genre_id)
         return postGenreAnime(genre, anime)
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 class AnimeGenreDetailAPIView(APIView):
@@ -133,6 +143,7 @@ class AnimeGenreDetailAPIView(APIView):
         anime = get_anime(pk)
         genre = get_genre(genre_id)
         return deleteGenreAnime(genre, anime)
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 class AnimeArticleListAPIView(APIView):
@@ -149,6 +160,7 @@ class AnimeArticleListAPIView(APIView):
         article = AnimeArticle.objects.create(anime=anime, name=data['name'], content=data['content'])
         serializer = ArticleSerializer(article)
         return Response(serializer.data)
+    permission_classes = [IsAuthenticated | ReadOnly]
 
 
 class AnimeArticleDetailAPIView(APIView):
@@ -171,3 +183,4 @@ class AnimeArticleDetailAPIView(APIView):
         article = self.get_article(article_id, anime)
         article.delete()
         return Response({'message': 'deleted'}, status=204)
+    permission_classes = [IsAuthenticated | ReadOnly]

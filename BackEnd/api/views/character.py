@@ -12,7 +12,7 @@ from .views import postAnimeCharacter, deleteAnimeCharacter, get_character, get_
 
 class CharacterListAPIView(APIView):
     def get(self, request):
-        characters = Character.objects.order_by('english_name')
+        characters = Character.manager.all()
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

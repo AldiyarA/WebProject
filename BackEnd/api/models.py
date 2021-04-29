@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class NameManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().order_by('english_name')
+
+
 # Create your models here.
 class Anime(models.Model):
     country = models.CharField(max_length=100, default='', blank=True, null=True)
@@ -12,6 +17,8 @@ class Anime(models.Model):
     author = models.CharField(max_length=100, default='', blank=True, null=True)
     description = models.TextField(max_length=10000, default='', blank=True, null=True)
     photo_url = models.CharField(max_length=200, default='', blank=True, null=True)
+    objects = models.Manager()  # The default manager.
+    manager = NameManager()
 
     def __str__(self):
         return f'ID-{self.pk} : {self.english_name}'
@@ -26,6 +33,8 @@ class Character(models.Model):
     age = models.IntegerField(null=True, blank=True)
     description = models.TextField(max_length=10000, default='', blank=True, null=True)
     photo_url = models.CharField(max_length=200, default='', blank=True, null=True)
+    objects = models.Manager()  # The default manager.
+    manager = NameManager()
 
     def __str__(self):
         return f'ID-{self.pk} : {self.english_name}'
