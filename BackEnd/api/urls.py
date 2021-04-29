@@ -17,7 +17,7 @@ urlpatterns = [
     path('anime/<int:pk>/characters/<int:character_id>/', AnimeCharacterDetailAPIView.as_view()),
     path('anime/<int:pk>/genres/', AnimeGenreListAPIView.as_view()),
     path('anime/<int:pk>/genres/<int:genre_id>/', AnimeGenreDetailAPIView.as_view()),
-    path('anime/<int:pk>/articles', AnimeArticleListAPIView.as_view()),
+    path('anime/<int:pk>/articles/', AnimeArticleListAPIView.as_view()),
     path('anime/<int:pk>/articles/<int:article_id>/', AnimeArticleDetailAPIView.as_view()),
     path('characters/', CharacterListAPIView.as_view()),
     path('characters/<int:pk>/', CharacterDetailAPIView.as_view()),

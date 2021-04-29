@@ -2,37 +2,39 @@
   display:grid;
   grid-template-columns: auto auto auto;
 }
-.left-background{
-  width: 100%;
-  height: 100%;
-}
-.anime-photo,.characters-photo,.genres-photo{
-  width:100%;
-  height: 33.5%;
-}
-.characters-photo,.genres-photo{
-  margin-top: -1.5%;
-}
-.anime-text,.characters-text,.genres-text{
-  margin-top:-10%;
-  margin-left:3%;
-  font-size:250%;
-  position:absolute;
-  -webkit-text-stroke: 2px #ffffff;
-  color: black;
-  font-weight: bold;
-}
-.left-background-text{
-  margin-top:-25%;
-  margin-left:15%;
-  font-size: 300%;
-  -webkit-text-stroke: 2px #ffffff;
-  color: black;
-  font-weight: bold;
-}
-a{
+
+a .text{
   text-decoration: none;
+  transition: 1s;
 }
-a:hover{
-  font-size: 1.3em;
+a:hover .text{
+  font-size: 50px;
+  transition: 1s;
+}
+.text{
+  position: absolute;
+  font-size: 40px;
+  -webkit-text-stroke: 2px #ffffff;
+  color: black;
+  font-weight: bold;
+  bottom: 30px;
+  left: 40px;
+}
+.left, .right{
+  position: relative;
+  height: 600px;
+}
+.right{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.photo-box{
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+.photo{
+  height: 100%;
+  width: 100%;
 }

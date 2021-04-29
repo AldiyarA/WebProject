@@ -12,7 +12,8 @@ html {
   scroll-behavior: smooth;
 }
 .main-box{
-  margin-top: 100px;
+  margin-top: 70px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
 }

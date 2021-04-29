@@ -45,7 +45,7 @@ def filterAnime(anime, genres):
 @api_view(['GET'])
 def animeFilterList(request, genres):
     if request.method == 'GET':
-        animeList = Anime.manager
+        animeList = Anime.manager.all()
         genres_id_str = genres
         genres_id = [int(genre_id) for genre_id in genres_id_str.split('-')]
         genres = []

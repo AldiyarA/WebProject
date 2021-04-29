@@ -20,7 +20,7 @@ export class AnimeService {
 
   getAnimeFilterList(genres: number[]): Observable<Anime[]>{
     const genresStr = genres.join('-');
-    return this.client.get<Anime[]>(`${this.BASE_URL}/filter/${genresStr}/`);
+    return this.client.get<Anime[]>(`${this.BASE_URL}/filter/${genresStr}`);
   }
 
   getAnime(id: number): Observable<Anime> {
